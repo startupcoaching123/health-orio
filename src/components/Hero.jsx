@@ -21,10 +21,10 @@ const HeroSection = ({ theme }) => {
       {/* --- 1. ARCHITECTURAL GRID & HEARTBEAT ANIMATION --- */}
       <div className="absolute inset-0 pointer-events-none z-0">
         
-        {/* Vertical Columns */}
-        <div className={`w-full h-full grid grid-cols-4 lg:grid-cols-12 max-w-[90%] mx-auto border-r ${gridColor}`}>
-          {[...Array(12)].map((_, i) => (
-            <div key={i} className={`relative h-full border-l ${gridColor} ${i === 0 || i === 4 ? 'block' : 'hidden lg:block'}`}>
+        {/* Vertical Columns - Reduced for cleaner look */}
+        <div className={`w-full h-full grid grid-cols-2 lg:grid-cols-6 max-w-[80%] mx-auto border-r ${gridColor}`}>
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className={`relative h-full border-l ${gridColor} ${i === 0 || i === 2 ? 'block' : 'hidden lg:block'}`}>
             </div>
           ))}
         </div>
@@ -34,18 +34,7 @@ const HeroSection = ({ theme }) => {
           <div className={`w-full border-b ${gridColor} h-1/4`}></div>
           <div className={`w-full border-b ${gridColor} h-1/4`}></div>
           {/* This middle line acts as the "Monitor Baseline" */}
-          <div className={`w-full border-b ${gridColor} h-1/4 relative`}>
-             
-             {/* --- THE HEARTBEAT PULSE ANIMATION --- */}
-             <div className="absolute top-[-2px] left-0 w-[200px] h-[5px] animate-monitor-sweep overflow-visible">
-                <div className="relative w-full h-full flex items-center justify-end">
-                   {/* The Glowing Head */}
-                   <div className="w-2 h-2 rounded-full bg-[#1F2022] shadow-[0_0_15px_#1F2022]"></div>
-                   {/* The Fading Tail */}
-                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#1F2022]/40 to-[#1F2022]"></div>
-                </div>
-             </div>
-
+          <div className={`w-full border-b ${gridColor} h-1/4`}>
           </div>
           <div className="w-full h-1/4"></div>
         </div>
@@ -54,17 +43,6 @@ const HeroSection = ({ theme }) => {
       {/* --- 2. HERO CONTENT (Centered) --- */}
       <div className="relative z-10 flex-grow flex flex-col items-center justify-center px-6 pt-20 text-center">
         
-        {/* System Status Badge (Modern Hospital Tech Vibe) */}
-        <div className="absolute top-32 right-8 lg:right-12 text-right hidden sm:block">
-           <div className="flex items-center justify-end gap-2 mb-1">
-             <span className="relative flex h-2.5 w-2.5">
-               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-75"></span>
-               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#1F2022]"></span>
-             </span>
-             <p className="text-xs uppercase tracking-wider font-bold">System Active</p>
-           </div>
-           <p className="text-[10px] font-mono opacity-60">ID: ORIO-SYS-2025</p>
-        </div>
 
         {/* Right Side Vertical Text */}
         <div className="absolute right-0 lg:right-4 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center pointer-events-none opacity-10">
@@ -110,19 +88,6 @@ const HeroSection = ({ theme }) => {
           ORIO <span className={`font-light transition-colors duration-700 ${theme === 'light' ? 'text-[#F5AD3D]' : 'text-white'}`}>LABS.</span>
         </span>
       </div>
-
-      {/* --- 4. ANIMATION STYLES --- */}
-      <style jsx>{`
-        @keyframes monitor-sweep {
-          0% { left: -200px; opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { left: 100%; opacity: 0; }
-        }
-        .animate-monitor-sweep {
-          animation: monitor-sweep 4s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
-        }
-      `}</style>
     </div>
   );
 };

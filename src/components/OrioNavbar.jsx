@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import OrioLogo from './OrioLogo';
 
 const OrioNavbar = ({ theme, toggleTheme }) => {
@@ -45,18 +46,25 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
 
           {/* --- DESKTOP LINKS --- */}
           <div className="hidden md:flex items-center gap-8 font-medium text-sm text-[#1F2022]">
-            {['Solutions', 'Platform', 'Outcomes', 'Company'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`} 
+            {[
+              { name: 'Solutions', href: '#solutions' },
+              { name: 'VBHC', href: '/vbhc' },
+              { name: 'Platform', href: '/platform' },
+              { name: 'IPU', href: '/ipu-solutions' },
+              { name: 'Outcomes', href: '#outcomes' },
+              { name: 'Company', href: '#company' }
+            ].map((item) => (
+              <Link 
+                key={item.name} 
+                to={item.href}
                 className="relative group py-1"
               >
                 <span className="relative z-10 opacity-80 group-hover:opacity-100 transition-opacity">
-                  {item}
+                  {item.name}
                 </span>
                 {/* Animated Underline */}
                 <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#1F2022] transition-all duration-300 group-hover:w-full ease-in-out"></span>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -105,16 +113,22 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
           ${isMobileMenuOpen ? 'opacity-100 translate-y-0 scale-100 visible' : 'opacity-0 -translate-y-4 scale-95 invisible'}`}>
           
           <div className="bg-white/90 backdrop-blur-2xl rounded-2xl p-6 shadow-2xl border border-white/20 flex flex-col gap-2">
-             {['Solutions', 'Platform', 'Company'].map((item, index) => (
-               <a 
-                key={item} 
-                href="#" 
+             {[
+               { name: 'Solutions', href: '#solutions' },
+               { name: 'VBHC', href: '/vbhc' },
+               { name: 'Platform', href: '/platform' },
+               { name: 'IPU', href: '/ipu-solutions' },
+               { name: 'Company', href: '#company' }
+             ].map((item, index) => (
+               <Link 
+                key={item.name} 
+                to={item.href}
                 className="group flex items-center justify-between py-3 px-4 rounded-xl hover:bg-black/5 transition-colors"
                 style={{ transitionDelay: `${index * 50}ms` }} // Staggered Animation
                >
-                 <span className="font-semibold text-lg text-[#1F2022]">{item}</span>
+                 <span className="font-semibold text-lg text-[#1F2022]">{item.name}</span>
                  <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
-               </a>
+               </Link>
              ))}
              <button className="mt-4 w-full bg-[#1F2022] text-white py-4 rounded-xl font-bold text-lg active:scale-95 transition-transform">
                Get Started

@@ -48,12 +48,10 @@ const WhoWeWorkWith = ({ theme }) => {
       ref={sectionRef}
       className={`relative w-full py-24 px-6 lg:px-12 ${sectionBg} ${textColor} transition-colors duration-700 overflow-hidden`}
     >
-      {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-b from-white/20 to-transparent rounded-full blur-3xl pointer-events-none mix-blend-overlay"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
         
-        {/* --- HEADER --- */}
         <div className={`mb-20 flex flex-col md:flex-row items-end justify-between gap-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="max-w-xl">
              <div className="flex items-center gap-2 mb-4">
