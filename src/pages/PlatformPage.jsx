@@ -111,10 +111,10 @@ const PlatformPage = ({ theme }) => {
     const textClass = isLight ? 'text-[#1F2022]' : 'text-white';
 
     const layers = [
-      { id: "04", title: "IPU Enablement Layer", desc: "Condition-wise dashboards and care pathway tracking.", icon: Activity, color: "text-purple-500" },
-      { id: "03", title: "Analytics & Insights Engine", desc: "Tracks outcomes, costs, LOS, utilization, and margins.", icon: Layers, color: "text-[#F5AD3D]" },
-      { id: "02", title: "Unified Data Layer", desc: "Combines clinical, operational, and financial data.", icon: Database, color: "text-teal-500" },
-      { id: "01", title: "Integration Layer", desc: "Connects all hospital systems into a single data flow.", icon: Server, color: "text-orange-500" },
+      { id: "01", title: "IPU Enablement Layer", desc: "Condition-wise dashboards and care pathway tracking.", icon: Activity, color: "text-purple-500" },
+      { id: "02", title: "Analytics & Insights Engine", desc: "Tracks outcomes, costs, LOS, utilization, and margins.", icon: Layers, color: "text-[#F5AD3D]" },
+      { id: "03", title: "Unified Data Layer", desc: "Combines clinical, operational, and financial data.", icon: Database, color: "text-teal-500" },
+      { id: "04", title: "Integration Layer", desc: "Connects all hospital systems into a single data flow.", icon: Server, color: "text-orange-500" },
     ];
 
     return (

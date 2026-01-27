@@ -66,7 +66,7 @@ const HeroSection = ({ theme }) => {
   }, []);
 
   return (
-    <section className={`relative w-full min-h-screen ${bgClass} ${textClass} font-sans transition-colors duration-700 ease-in-out overflow-hidden flex flex-col items-center justify-center py-30`}>
+    <section className={`relative w-full min-h-screen ${bgClass} ${textClass} font-sans transition-colors duration-700 ease-in-out overflow-hidden flex flex-col items-center justify-center pt-30`}>
       
       {/* --- 1. BACKGROUND LAYERS --- */}
       
@@ -135,26 +135,7 @@ const HeroSection = ({ theme }) => {
 
 
         {/* --- 4. SCROLL TRIGGER (Preserved) --- */}
-        <div className="group relative cursor-pointer animate-in fade-in duration-1000 delay-500"
-             onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
-           
-           <div className="relative w-28 h-28 flex items-center justify-center">
-              {/* Spinning Text */}
-              <svg className="absolute inset-0 w-full h-full animate-spin-slow opacity-60 group-hover:opacity-100 transition-opacity" viewBox="0 0 100 100">
-                 <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-                 <text className="font-bold text-[12px] uppercase tracking-[0.16em]" fill="currentColor">
-                    <textPath href="#circlePath" startOffset="0%">
-                       Scroll to Explore • Scroll to Explore •
-                    </textPath>
-                 </text>
-              </svg>
-
-              {/* Center Icon */}
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-xl ${isLight ? 'bg-[#1F2022] text-white' : 'bg-white text-[#1F2022]'}`}>
-                 <ArrowDown size={20} className="group-hover:translate-y-0.5 transition-transform" />
-              </div>
-           </div>
-        </div>
+        
 
       </div>
 

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import OrioLogo from './OrioLogo';
+import { useNavigate } from 'react-router-dom';
 
 const OrioNavbar = ({ theme, toggleTheme }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   // Handle Scroll Effect
   useEffect(() => {
@@ -37,7 +39,7 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
         >
           
           {/* --- LOGO SECTION --- */}
-          <div className={`flex items-center gap-3 font-bold text-xl tracking-tighter ${textColor} group cursor-pointer`}>
+          <div onClick={() => navigate('/')} className={`flex items-center gap-3 font-bold text-xl tracking-tighter ${textColor} group cursor-pointer`}>
              <div className="transition-transform duration-500 group-hover:rotate-180">
                <OrioLogo theme={theme} className="w-10 h-10" /> 
              </div>
@@ -47,12 +49,12 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
           {/* --- DESKTOP LINKS --- */}
           <div className="hidden md:flex items-center gap-8 font-medium text-sm text-[#1F2022]">
             {[
-              { name: 'Solutions', href: '#solutions' },
+              { name: 'Solutions', href: '/solutions-by-role' },
               { name: 'VBHC', href: '/vbhc' },
               { name: 'Platform', href: '/platform' },
               { name: 'IPU', href: '/ipu-solutions' },
-              { name: 'Outcomes', href: '#outcomes' },
-              { name: 'Company', href: '#company' }
+              { name: 'ROI', href: 'roi' },
+              { name: 'Resources', href: '/resources' }
             ].map((item) => (
               <Link 
                 key={item.name} 
