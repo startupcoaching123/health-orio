@@ -14,21 +14,21 @@ const WhyVBHC = ({ theme }) => {
   // ---------------------------
   const isLight = theme === 'light';
 
-  const bgColor = isLight ? 'bg-[#F5AD3D]' : 'bg-white';
-  const textColor = 'text-[#1F2022]';
+  const bgColor = isLight ? 'bg-[#E6EBE0]' : 'bg-[#151618]';
+  const textColor = theme === 'light' ? 'text-[#1F2022]' : 'text-white';
 
   const borderColor = isLight
     ? 'border-[#1F2022]/10'
-    : 'border-gray-200';
+    : 'border-white/5';
 
   const cardBg = isLight
-    ? 'bg-white/20'
-    : 'bg-gray-50';
+    ? 'bg-white/40'
+    : 'bg-white/5';
 
   return (
     <section
       className={`relative w-full py-24 px-6 lg:px-12
-      ${bgColor} ${textColor}
+      ${bgColor} ${textColor} border-t border-white/5
       transition-colors duration-700 overflow-hidden`}
     >
       {/* Subtle Architectural Grid */}
@@ -45,13 +45,14 @@ const WhyVBHC = ({ theme }) => {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-16 border-b-2 border-[#1F2022] pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className={`mb-16 border-b-2 ${isLight ? 'border-[#1F2022]' : 'border-white/10'} pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4`}>
           <div>
             <h4 className="text-sm font-bold uppercase tracking-widest opacity-60 mb-2">
               The Shift
             </h4>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight">
-              WHY VALUE-BASED <br /> HEALTHCARE?
+            <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">
+              Realizing the Promise of <br />
+              <span className="text-[#F5AD3D]">Value-Based Healthcare.</span>
             </h2>
           </div>
 
@@ -70,7 +71,7 @@ const WhyVBHC = ({ theme }) => {
             shadow-sm hover:shadow-md transition-shadow`}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-[#1F2022] rounded-full text-white">
+              <div className={`p-3 ${isLight ? 'bg-[#1F2022]' : 'bg-[#F5AD3D]'} rounded-full ${isLight ? 'text-white' : 'text-[#1F2022]'}`}>
                 <TrendingUp size={24} />
               </div>
               <h3 className="text-2xl font-bold">The Core Definition</h3>
@@ -89,14 +90,14 @@ const WhyVBHC = ({ theme }) => {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between p-4
-                  bg-white/40 rounded-xl border border-white/50"
+                  className={`flex items-center justify-between p-4
+                  ${isLight ? 'bg-white/40 border-white/50' : 'bg-white/5 border-white/10'} rounded-xl border`}
                 >
-                  <span className="font-semibold text-gray-500">
+                  <span className={`font-semibold ${isLight ? 'text-gray-500' : 'text-white/40'}`}>
                     {item.from}
                   </span>
-                  <ArrowRight className="w-5 h-5 animate-pulse" />
-                  <span className="font-bold text-xl">
+                  <ArrowRight className={`w-5 h-5 animate-pulse ${!isLight ? 'text-[#F5AD3D]' : ''}`} />
+                  <span className={`font-bold text-xl ${!isLight ? 'text-white' : ''}`}>
                     {item.to}
                   </span>
                 </div>
@@ -139,8 +140,8 @@ const WhyVBHC = ({ theme }) => {
               </div>
             </div>
 
-            <div className="mt-8 pt-8 border-t border-white/10">
-              <div className="text-4xl font-black">ROI ↑</div>
+            <div className={`mt-8 pt-8 border-t ${isLight ? 'border-[#1F2022]/10' : 'border-white/10'}`}>
+              <div className={`text-4xl font-black ${!isLight ? 'text-[#F5AD3D]' : ''}`}>ROI ↑</div>
               <div className="text-sm opacity-60">
                 Built for scalable care
               </div>
@@ -150,7 +151,7 @@ const WhyVBHC = ({ theme }) => {
           {/* Card 3 */}
           <div
             className={`lg:col-span-12 rounded-3xl p-8 shadow-sm
-            ${isLight ? 'bg-white' : 'bg-gray-50'}
+            ${isLight ? 'bg-white/60' : 'bg-white/5'}
             border ${borderColor}
             flex flex-col md:flex-row gap-8 items-center`}
           >
@@ -175,11 +176,11 @@ const WhyVBHC = ({ theme }) => {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex flex-col items-center justify-center p-6
-                  bg-gray-100 rounded-2xl border border-gray-200
-                  text-center hover:bg-gray-200 transition-colors"
+                  className={`flex flex-col items-center justify-center p-6
+                  ${isLight ? 'bg-gray-100 border-gray-200' : 'bg-white/5 border-white/10'} rounded-2xl border
+                  text-center hover:${isLight ? 'bg-gray-200' : 'bg-white/10'} transition-colors`}
                 >
-                  <item.icon className="w-8 h-8 mb-3 text-[#F5AD3D]" />
+                  <item.icon className={`w-8 h-8 mb-3 ${isLight ? 'text-[#1F2022]' : 'text-[#E6EBE0]'}`} />
                   <span className="font-bold leading-tight">
                     {item.label}
                   </span>

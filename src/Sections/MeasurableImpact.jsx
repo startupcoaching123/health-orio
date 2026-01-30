@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { 
-  TrendingUp, 
-  TrendingDown, 
-  Clock, 
-  PieChart, 
+import {
+  TrendingUp,
+  TrendingDown,
+  Clock,
+  PieChart,
   ArrowUpRight,
   ArrowDownRight
 } from 'lucide-react';
@@ -17,10 +17,10 @@ const MeasurableImpact = ({ theme }) => {
   // Dark: Deep Charcoal for contrast against Yellow/Blue previous sections
   const sectionBg = isLight ? 'bg-slate-50' : 'bg-[#1F2022]';
   const textColor = isLight ? 'text-[#1F2022]' : 'text-white';
-  
+
   // Card Styling
-  const cardBg = isLight 
-    ? 'bg-white border-gray-100 shadow-sm hover:shadow-xl' 
+  const cardBg = isLight
+    ? 'bg-white border-gray-100 shadow-sm hover:shadow-xl'
     : 'bg-white/5 border-white/10 hover:bg-white/10';
 
   // --- ANIMATION OBSERVER ---
@@ -67,8 +67,8 @@ const MeasurableImpact = ({ theme }) => {
       value: "0.5–1.5",
       unit: "Days",
       icon: Clock,
-      color: "text-orange-500",
-      bgAccent: "bg-orange-500",
+      color: isLight ? "text-[#1F2022]" : "text-[#F5AD3D]",
+      bgAccent: isLight ? "bg-[#1F2022]" : "bg-[#F5AD3D]",
       trend: "down"
     },
     {
@@ -84,30 +84,30 @@ const MeasurableImpact = ({ theme }) => {
   ];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className={`relative w-full py-24 px-6 lg:px-12 ${sectionBg} ${textColor} transition-colors duration-700 overflow-hidden`}
+      className={`relative w-full py-24 px-6 lg:px-12 ${sectionBg} ${textColor} border-t border-white/5 transition-colors duration-700 overflow-hidden`}
     >
       {/* Background Decor (Subtle Grid) */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
         <div className="w-full h-full grid grid-cols-6 lg:grid-cols-12 gap-4">
-           {[...Array(12)].map((_, i) => (
-             <div key={i} className="h-full border-r border-current"></div>
-           ))}
+          {[...Array(12)].map((_, i) => (
+            <div key={i} className="h-full border-r border-current"></div>
+          ))}
         </div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        
+
         {/* --- SECTION HEADER --- */}
         <div className={`mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div>
             <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 border ${isLight ? 'border-gray-200 bg-white' : 'border-white/20 bg-white/10'}`}>
-               <span className="relative flex h-2 w-2">
-                  <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isLight ? 'bg-emerald-500' : 'bg-emerald-400'}`}></span>
-                  <span className={`relative inline-flex rounded-full h-2 w-2 ${isLight ? 'bg-emerald-500' : 'bg-emerald-400'}`}></span>
-               </span>
-               <span className="text-xs font-bold uppercase tracking-widest">Real World Data</span>
+              <span className="relative flex h-2 w-2">
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isLight ? 'bg-emerald-500' : 'bg-emerald-400'}`}></span>
+                <span className={`relative inline-flex rounded-full h-2 w-2 ${isLight ? 'bg-emerald-500' : 'bg-emerald-400'}`}></span>
+              </span>
+              <span className="text-xs font-bold uppercase tracking-widest">Real World Data</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">
               Measurable Impact
@@ -121,7 +121,7 @@ const MeasurableImpact = ({ theme }) => {
         {/* --- STATS GRID --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
-            <div 
+            <div
               key={stat.id}
               className={`group relative p-8 rounded-3xl border transition-all duration-500
                 ${cardBg}
@@ -132,17 +132,17 @@ const MeasurableImpact = ({ theme }) => {
               {/* Header: Icon & Label */}
               <div className="flex justify-between items-start mb-6">
                 <div>
-                   <h3 className={`font-bold text-sm uppercase tracking-wider opacity-60 mb-1 ${isLight ? 'text-gray-500' : 'text-gray-400'}`}>
-                     {stat.label}
-                   </h3>
-                   <div className={`p-2 rounded-lg inline-flex items-center justify-center ${isLight ? 'bg-gray-100' : 'bg-white/10'}`}>
-                      <stat.icon size={20} className={stat.color} />
-                   </div>
+                  <h3 className={`font-bold text-sm uppercase tracking-wider opacity-60 mb-1 ${isLight ? 'text-gray-500' : 'text-gray-400'}`}>
+                    {stat.label}
+                  </h3>
+                  <div className={`p-2 rounded-lg inline-flex items-center justify-center ${isLight ? 'bg-gray-100' : 'bg-white/10'}`}>
+                    <stat.icon size={20} className={stat.color} />
+                  </div>
                 </div>
-                
+
                 {/* Trend Arrow */}
                 <div className={`opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-2 group-hover:translate-x-0 ${stat.color}`}>
-                   {stat.trend === 'up' ? <ArrowUpRight size={24} /> : <ArrowDownRight size={24} />}
+                  {stat.trend === 'up' ? <ArrowUpRight size={24} /> : <ArrowDownRight size={24} />}
                 </div>
               </div>
 
