@@ -38,7 +38,7 @@ const Footer = () => {
           {/* Brand Info */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="bg-white p-1 rounded-full">
+              <div className=" p-1 rounded-full">
                 <OrioLogo theme="dark" className="w-10 h-10" />
               </div>
               <span className="text-2xl font-black tracking-wide text-white">ORIO LABS.</span>
