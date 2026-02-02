@@ -33,7 +33,7 @@ const ScrollToTop = () => {
 
 const App = () => {
   // 1. DEFINE STATE HERE (This fixes the ReferenceError)
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   // 2. Toggle Function
   const toggleTheme = () => {
