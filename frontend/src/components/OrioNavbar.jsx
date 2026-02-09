@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import OrioLogo from './OrioLogo';
 import { useNavigate } from 'react-router-dom';
 
+const handleClientRedirect = () => {
+  window.open("https://dev-ui.healthorio.ai/", "_blank", "noopener,noreferrer");
+};
+
 const OrioNavbar = ({ theme, toggleTheme }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -88,9 +92,9 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
             </button>
 
             {/* CTA Button (Modern & Shiny) */}
-            <button className={`hidden md:flex items-center gap-2 ${theme === 'light' ? 'bg-[#1F2022] text-white hover:bg-black' : 'bg-[#F5AD3D] text-[#1F2022] hover:bg-white'} pl-5 pr-4 py-2.5 rounded-xl text-sm font-semibold 
+            <button onClick={handleClientRedirect} className={`hidden md:flex items-center gap-2 ${theme === 'light' ? 'bg-[#1F2022] text-white hover:bg-black' : 'bg-[#F5AD3D] text-[#1F2022] hover:bg-white'} pl-5 pr-4 py-2.5 rounded-xl text-sm font-semibold 
               hover:shadow-lg transition-all duration-300 group`}>
-              Get Started
+              Healthorio Insights
               <ArrowUpRight className={`w-4 h-4 ${theme === 'light' ? 'text-white/50' : 'text-[#1F2022]/50'} group-hover:text-current group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all`} />
             </button>
 
@@ -134,8 +138,8 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
                 <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
               </Link>
             ))}
-            <button className={`mt-4 w-full ${theme === 'light' ? 'bg-[#1F2022] text-white' : 'bg-[#F5AD3D] text-[#1F2022]'} py-4 rounded-xl font-bold text-lg active:scale-95 transition-transform`}>
-              Get Started
+            <button onClick={handleClientRedirect} className={`mt-4 w-full ${theme === 'light' ? 'bg-[#1F2022] text-white' : 'bg-[#F5AD3D] text-[#1F2022]'} py-4 rounded-xl font-bold text-lg active:scale-95 transition-transform`}>
+              Healthorio Insights
             </button>
           </div>
         </div>
