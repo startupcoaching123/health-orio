@@ -125,12 +125,12 @@ const SolutionsByRole = ({ theme }) => {
                </div>
 
                {/* Capabilities Grid */}
-               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {capabilities.map((capability, index) => (
                      <div 
                         key={index}
-                        className={`p-6 rounded-2xl border border-current/10 ${cardBg} transition-all duration-700 hover:scale-105 ${
-                           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                        className={`p-4 sm:p-6 rounded-2xl border border-current/10 ${cardBg} transition-all duration-700 hover:scale-105 ${
+                           (isVisible || forceVisible) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                         }`}
                         style={{ transitionDelay: `${index * 100}ms` }}
                      >
@@ -227,12 +227,12 @@ const SolutionsByRole = ({ theme }) => {
                </div>
 
                {/* Capabilities Grid */}
-               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {capabilities.map((capability, index) => (
                      <div 
                         key={index}
-                        className={`p-6 rounded-2xl border border-current/10 ${cardBg} transition-all duration-700 hover:scale-105 ${
-                           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                        className={`p-4 sm:p-6 rounded-2xl border border-current/10 ${cardBg} transition-all duration-700 hover:scale-105 ${
+                           (isVisible || forceVisible) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                         }`}
                         style={{ transitionDelay: `${index * 100}ms` }}
                      >
