@@ -113,7 +113,7 @@ const WhyVBHC = ({ theme }) => {
                   <ShieldCheck size={24} />
                 </div>
                 <h3 className="text-2xl font-bold">
-                  Indian Hospital Context
+                  Hospital Context
                 </h3>
               </div>
 

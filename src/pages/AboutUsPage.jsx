@@ -58,7 +58,7 @@ const AboutUsPage = ({ theme }) => {
                   </div>
 
                   <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.1] mb-8">
-                     To enable Indian hospitals to deliver <br />
+                     To enable hospitals to deliver <br />
                      <span className="text-[#F5AD3D]">
                         Better Outcomes
                      </span> <br />

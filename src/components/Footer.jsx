@@ -1,9 +1,6 @@
 import React from 'react';
 import {
   ArrowRight,
-  Linkedin,
-  Twitter,
-  Instagram,
   Mail,
   MapPin,
   Phone
@@ -41,7 +38,9 @@ const Footer = () => {
               <div className=" p-1 rounded-full">
                 <OrioLogo theme="dark" className="w-10 h-10" />
               </div>
-              <span className="text-2xl font-black tracking-wide text-white">ORIO LABS.</span>
+              <span className="text-2xl font-black tracking-wide text-white">
+              <span className="text-[#F5AD3D]">HEALTH</span> <span className="text-white">ORIO.</span>
+            </span>
             </div>
             <p className={`text-lg leading-relaxed max-w-md ${mutedText}`}>
               Transforming healthcare operations through Value-Based Healthcare architecture and IPU-driven technology.
@@ -56,7 +55,7 @@ const Footer = () => {
                 type="email"
                 placeholder="Enter your email address"
                 // UPDATED: Input background is slightly lighter than footer for depth
-                className="flex-grow bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder-zinc-600 focus:outline-none focus:border-[#E6EBE0] focus:ring-1 focus:ring-[#E6EBE0] transition-all"
+                className="grow bg-[#1A1A1A] border border-white/10 rounded-xl px-5 py-4 text-white placeholder-zinc-600 focus:outline-none focus:border-[#E6EBE0] focus:ring-1 focus:ring-[#E6EBE0] transition-all"
               />
               <button className="bg-[#F5AD3D] text-[#1F2022] px-8 py-4 rounded-xl font-bold hover:bg-white transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(245,173,61,0.3)]">
                 Subscribe <ArrowRight size={18} />
@@ -65,86 +64,47 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* --- MIDDLE SECTION: CONTACT INFO --- */}
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h4 className="font-bold text-2xl mb-8 text-white">Get in Touch</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className={`flex flex-col items-center text-center group`}>
+              <div className={`w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4 ${accentColor} group-hover:bg-white group-hover:text-[#0A0A0A] transition-all`}>
+                <MapPin size={24} />
+              </div>
+              <h5 className="font-bold text-white mb-2">Address</h5>
+              <p className={`${mutedText} text-sm leading-relaxed`}>
+                123 Innovation Drive,<br />Bangalore, India 560001
+              </p>
+            </div>
 
-        {/* --- MIDDLE SECTION: LINKS --- */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+            <div className={`flex flex-col items-center text-center group`}>
+              <div className={`w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4 ${accentColor} group-hover:bg-white group-hover:text-[#0A0A0A] transition-all`}>
+                <Mail size={24} />
+              </div>
+              <h5 className="font-bold text-white mb-2">Email</h5>
+              <a href="mailto:hello@oriolabs.health" className={`${mutedText} text-sm hover:text-white transition-colors`}>
+                hello@oriolabs.health
+              </a>
+            </div>
 
-          {/* Column 1 */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Platform</h4>
-            <ul className={`space-y-4 ${mutedText}`}>
-              {['IPU Architecture', 'Clinical Data', 'Financial ROI', 'Outcomes'].map(item => (
-                <li key={item}>
-                  <a href="#" className={`hover:${accentColor} hover:translate-x-1 transition-all inline-block`}>{item}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 2 */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Company</h4>
-            <ul className={`space-y-4 ${mutedText}`}>
-              {['About Us', 'Case Studies', 'Careers', 'Press Kit'].map(item => (
-                <li key={item}>
-                  <a href="#" className={`hover:${accentColor} hover:translate-x-1 transition-all inline-block`}>{item}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3 */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Resources</h4>
-            <ul className={`space-y-4 ${mutedText}`}>
-              {['Blog', 'Whitepapers', 'Hospital Assessment', 'Help Center'].map(item => (
-                <li key={item}>
-                  <a href="#" className={`hover:${accentColor} hover:translate-x-1 transition-all inline-block`}>{item}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4: Contact */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Contact</h4>
-            <ul className={`space-y-5 ${mutedText}`}>
-              <li className="flex items-start gap-3 group">
-                <div className={`mt-1 ${accentColor} group-hover:text-white transition-colors`}>
-                  <MapPin size={20} />
-                </div>
-                <span>123 Innovation Drive,<br />Bangalore, India 560001</span>
-              </li>
-              <li className="flex items-center gap-3 group">
-                <div className={`${accentColor} group-hover:text-white transition-colors`}>
-                  <Mail size={20} />
-                </div>
-                <a href="mailto:hello@oriolabs.health" className="hover:text-white transition-colors">hello@oriolabs.health</a>
-              </li>
-              <li className="flex items-center gap-3 group">
-                <div className={`${accentColor} group-hover:text-white transition-colors`}>
-                  <Phone size={20} />
-                </div>
-                <span>+91 98765 43210</span>
-              </li>
-            </ul>
+            <div className={`flex flex-col items-center text-center group`}>
+              <div className={`w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4 ${accentColor} group-hover:bg-white group-hover:text-[#0A0A0A] transition-all`}>
+                <Phone size={24} />
+              </div>
+              <h5 className="font-bold text-white mb-2">Phone</h5>
+              <p className={`${mutedText} text-sm`}>
+                +91 98765 43210
+              </p>
+            </div>
           </div>
         </div>
 
-
-        {/* --- BOTTOM SECTION: COPYRIGHT & SOCIAL --- */}
-        <div className="flex flex-col md:flex-row items-center justify-between pt-6 border-t border-white/5">
-
-          <div className={`text-sm ${mutedText} mb-4 md:mb-0`}>
-            © 2025 Orio Labs Pvt Ltd. All rights reserved.
+        {/* --- BOTTOM SECTION: COPYRIGHT --- */}
+        <div className="flex flex-col md:flex-row items-center justify-center pt-6 border-t border-white/5">
+          <div className={`text-sm ${mutedText}`}>
+            2025 Health Orio Pvt Ltd. All rights reserved.
           </div>
-
-          <div className="flex items-center gap-6">
-            <a href="#" className={`hover:${accentColor} transition-colors ${mutedText}`}><Linkedin size={20} /></a>
-            <a href="#" className={`hover:${accentColor} transition-colors ${mutedText}`}><Twitter size={20} /></a>
-            <a href="#" className={`hover:${accentColor} transition-colors ${mutedText}`}><Instagram size={20} /></a>
-          </div>
-
         </div>
       </div>
     </footer>

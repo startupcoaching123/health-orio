@@ -67,9 +67,9 @@ const HeroSection = ({ theme }) => {
 
       {/* --- 3. BRANDING --- */}
       <div className=" absolute bottom-8 left-8 lg:left-12 z-20 flex items-center gap-5 tracking-tighter group cursor-pointer">
-        <OrioLogo theme={theme} className="transition-transform duration-500 group-hover:rotate-180 w-14 h-14 drop-shadow-2xl" />
-        <span className={`text-3xl font-black tracking-wide ${theme === 'light' ? 'text-[#1F2022]' : 'text-[#E6EBE0]'}`}>
-          ORIO <span className={`font-light transition-colors duration-700 ${theme === 'light' ? 'text-[#1F2022]/60' : 'text-white/60'}`}>LABS.</span>
+        <OrioLogo theme={theme} className=" w-14 h-14 drop-shadow-2xl" />
+        <span className={`text-3xl font-black tracking-wide`}>
+          <span className={theme === 'light' ? 'text-[#1F2022]' : 'text-[#F5AD3D]'}>HEALTH</span> <span className={`font-light transition-colors duration-700 ${theme === 'light' ? 'text-[#1F2022]/60' : 'text-white/60'}`}>ORIO</span>
         </span>
       </div>
 

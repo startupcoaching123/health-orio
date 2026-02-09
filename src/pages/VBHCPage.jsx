@@ -184,7 +184,7 @@ const VBHCPage = ({ theme }) => {
               <span className="text-xs font-bold uppercase tracking-[0.2em] opacity-60">The Impact</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-[1.1] mb-6">
-              Why VBHC Matters for <span className={isLight ? 'opacity-60' : 'text-white'}>Indian Hospitals</span>
+              Why VBHC Matters for <span className={isLight ? 'opacity-60' : 'text-white'}>Hospitals</span>
             </h2>
           </div>
 
@@ -321,6 +321,148 @@ const VBHCPage = ({ theme }) => {
     );
   };
 
+  // --- HOW WE SOLVE SECTION ---
+  const HowWeSolveSection = () => {
+    const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
+    const bgClass = isLight ? 'bg-white' : 'bg-[#1F2022]';
+    const textClass = isLight ? 'text-[#1F2022]' : 'text-[#E6EBE0]';
+    const cardBg = isLight ? 'bg-white border-gray-200 hover:shadow-xl' : 'bg-[#252629] border-white/10 hover:bg-[#2A2B2E] hover:shadow-2xl';
+
+    const paths = [
+      {
+        number: "01",
+        title: "Full Data Stack Migration",
+        subtitle: "High Control, High Cost",
+        when: "Fragmented systems, sunsetting legacy platforms, preparing for large‑scale digital transformation.",
+        whatWeDo: "Ingests full historical and operational datasets, normalizes into a compliance‑first schema, creates a single source of truth.",
+        value: "Clean slate, future‑proof architecture, maximum interoperability.",
+        quote: "Full migration eliminates decades of technical debt."
+      },
+      {
+        number: "02",
+        title: "Selective ETL on Existing Systems",
+        subtitle: "Fastest, Lowest Cost",
+        when: "Want AI insights quickly, don't want to touch HIS/EMR, have budget constraints.",
+        whatWeDo: "Extracts only fields needed for AI, maps into AI‑ready schema, leaves core systems untouched.",
+        value: "Minimal disruption, rapid deployment, fast ROI.",
+        quote: "AI without migration."
+      },
+      {
+        number: "03",
+        title: "Mixed Data Sourcing",
+        subtitle: "Hybrid Strategy",
+        when: "Structured + unstructured mix, phased modernization.",
+        whatWeDo: "Pulls structured data via APIs, extracts unstructured data via OCR/NLP, harmonizes both.",
+        value: "Modernization without waiting for perfect data.",
+        quote: "Start where you are, modernize as you go."
+      },
+      {
+        number: "04",
+        title: "Refactor Existing Data Store",
+        subtitle: "Schema Modernization",
+        when: "Want faster search, digital forms, MDT workflows, better clinician UX.",
+        whatWeDo: "Rebuilds or optimizes schema, adds indexing and metadata, enables structured capture and rapid retrieval.",
+        value: "Better clinician experience, faster access, foundation for future AI.",
+        quote: "Upgrade your existing system without migration."
+      }
+    ];
+
+    return (
+      <section ref={ref} className={`relative py-24 px-6 lg:px-12 ${bgClass} ${textClass} transition-colors duration-700`}>
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className={`mb-16 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="inline-block px-3 py-1 mb-4 rounded-full bg-blue-500/10 text-blue-500 font-bold text-xs uppercase tracking-widest">
+              The Solution
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black mb-6">
+              How We <span className="text-blue-500">Solve.</span>
+            </h2>
+          </div>
+
+          {/* Problem Statement */}
+          <div className={`mb-20 text-center max-w-4xl mx-auto transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+              <div className={`p-6 rounded-2xl border ${isLight ? 'border-red-200 bg-red-50' : 'border-red-500/20 bg-red-500/5'}`}>
+                <h3 className="text-lg font-bold mb-4 text-red-500">Fragmented Data</h3>
+                <p className="text-sm opacity-80">
+                  Healthcare data is scattered across legacy systems, paper files, siloed databases, and outdated schemas.
+                </p>
+              </div>
+              <div className={`p-6 rounded-2xl border ${isLight ? 'border-orange-200 bg-orange-50' : 'border-orange-500/20 bg-orange-500/5'}`}>
+                <h3 className="text-lg font-bold mb-4 text-orange-500">Unready Infrastructure</h3>
+                <p className="text-sm opacity-80">
+                  Hospitals want AI, analytics, and digital workflows — but their data isn't structured, accessible, or compliant.
+                </p>
+              </div>
+            </div>
+
+            <div className={`p-8 rounded-3xl border-2 ${isLight ? 'border-blue-500 bg-blue-50' : 'border-blue-400 bg-blue-500/10'}`}>
+              <h3 className="text-2xl font-bold mb-4 text-blue-500">The HealthOrioBridge Solution</h3>
+              <p className="text-lg opacity-90 font-medium">
+                A secure, compliant, API‑powered data backbone that modernizes any hospital at any maturity level.
+              </p>
+            </div>
+          </div>
+
+          {/* Four Paths */}
+          <div className={`mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h3 className="text-2xl font-bold text-center mb-4">
+              Four Paths. <span className="text-blue-500">One Platform.</span> Built for Every Hospital's Digital Maturity.
+            </h3>
+            <p className="text-center opacity-70 mb-12 max-w-3xl mx-auto">
+              Hospitals don't need to choose between expensive migration and doing nothing. HealthOrioBridge offers four paths — each designed for different budgets, timelines, and digital maturity levels.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {paths.map((path, idx) => (
+                <div key={idx} className={`p-6 rounded-2xl border transition-all duration-700 group relative overflow-hidden ${cardBg} ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                }`} style={{ transitionDelay: `${idx * 100}ms` }}>
+                  {/* Path Number */}
+                  <div className="absolute top-4 right-4">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm ${isLight ? 'bg-blue-500 text-white' : 'bg-blue-400 text-[#1F2022]'}`}>
+                      {path.number}
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="mb-4">
+                    <h3 className="text-lg font-bold mb-1 pr-12 leading-tight">{path.title}</h3>
+                    <p className="text-xs font-bold opacity-60 uppercase tracking-wider">{path.subtitle}</p>
+                  </div>
+
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider opacity-50 mb-1">When:</h4>
+                      <p className="text-xs opacity-90 leading-relaxed">{path.when}</p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider opacity-50 mb-1">What we do:</h4>
+                      <p className="text-xs opacity-90 leading-relaxed">{path.whatWeDo}</p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider opacity-50 mb-1">Value:</h4>
+                      <p className="text-xs opacity-90 leading-relaxed">{path.value}</p>
+                    </div>
+
+                    <div className={`pt-3 border-t ${isLight ? 'border-gray-200' : 'border-white/10'}`}>
+                      <p className={`text-xs font-bold italic ${isLight ? 'text-blue-600' : 'text-blue-400'}`}>
+                        "{path.quote}"
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  };
+
   return (
     <div className="w-full flex flex-col">
       <HeroSection />
@@ -328,6 +470,7 @@ const VBHCPage = ({ theme }) => {
       <WhyVBHCMattersSection />
       <IPUSection />
       <SolveSection />
+      <HowWeSolveSection />
     </div>
   );
 };

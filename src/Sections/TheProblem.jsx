@@ -114,7 +114,7 @@ const TheProblem = ({ theme }) => {
           </h2>
 
           <p className="text-xl font-medium leading-relaxed opacity-90 mb-8 max-w-md">
-            Most Indian hospitals struggle with disconnected systems. This results in <span className="underline decoration-2 underline-offset-4">higher costs</span>, <span className="underline decoration-2 underline-offset-4">inconsistent outcomes</span>, and underutilized capacity.
+            Most hospitals struggle with disconnected systems. This results in <span className="underline decoration-2 underline-offset-4">higher costs</span>, <span className="underline decoration-2 underline-offset-4">inconsistent outcomes</span>, and underutilized capacity.
           </p>
 
           <div className="hidden lg:block mt-auto">

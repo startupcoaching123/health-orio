@@ -1,7 +1,7 @@
 import React from 'react';
 // Import both logos from your assets folder
-import logoImage from '../assets/OrioLogo.png'; 
-import logo2Image from '../assets/logo2.png'; 
+import logoImage from '../assets/logo4.png'; 
+import logo2Image from '../assets/logo4.png'; 
 
 const OrioLogo = ({ theme, className }) => {
   // Use logo2 when theme is dark, otherwise use the original logo
@@ -10,7 +10,7 @@ const OrioLogo = ({ theme, className }) => {
   return (
     <img 
       src={logoSrc} 
-      alt="Orio Labs Logo" 
+      alt="Health Orio Logo" 
       className={`object-contain ${className}`} 
     />
   );

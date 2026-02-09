@@ -40,10 +40,12 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
 
           {/* --- LOGO SECTION --- */}
           <div onClick={() => navigate('/')} className={`flex items-center gap-3 font-bold text-xl tracking-tighter ${textColor} group cursor-pointer`}>
-            <div className="transition-transform duration-500 group-hover:rotate-180">
+            <div className="">
               <OrioLogo theme={theme} className="w-10 h-10" />
             </div>
-            <span className="group-hover:opacity-70 transition-opacity">ORIO LABS</span>
+            <span className="group-hover:opacity-70 transition-opacity">
+              <span className={theme === 'light' ? 'text-[#1F2022]' : 'text-[#F5AD3D]'}>HEALTH</span> <span className={theme === 'light' ? 'text-[#1F2022]' : 'text-white'}>ORIO</span>
+            </span>
           </div>
 
           {/* --- DESKTOP LINKS --- */}
