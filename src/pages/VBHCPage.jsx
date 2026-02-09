@@ -372,11 +372,11 @@ const VBHCPage = ({ theme }) => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className={`mb-16 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-block px-3 py-1 mb-4 rounded-full bg-blue-500/10 text-blue-500 font-bold text-xs uppercase tracking-widest">
+            <div className="inline-block px-3 py-1 mb-4 rounded-full bg-yellow-500/10 text-yellow-500 font-bold text-xs uppercase tracking-widest">
               The Solution
             </div>
             <h2 className="text-4xl md:text-6xl font-black mb-6">
-              How We <span className="text-blue-500">Solve.</span>
+              How We <span className="text-yellow-500">Solve.</span>
             </h2>
           </div>
 
@@ -398,7 +398,7 @@ const VBHCPage = ({ theme }) => {
             </div>
 
             <div className={`p-8 rounded-3xl border-2 ${isLight ? 'border-blue-500 bg-blue-50' : 'border-blue-400 bg-blue-500/10'}`}>
-              <h3 className="text-2xl font-bold mb-4 text-blue-500">The HealthOrioBridge Solution</h3>
+              <h3 className="text-2xl font-bold mb-4 text-blue-500">The HealthOrio Bridge Solution</h3>
               <p className="text-lg opacity-90 font-medium">
                 A secure, compliant, API‑powered data backbone that modernizes any hospital at any maturity level.
               </p>
@@ -408,7 +408,7 @@ const VBHCPage = ({ theme }) => {
           {/* Four Paths */}
           <div className={`mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h3 className="text-2xl font-bold text-center mb-4">
-              Four Paths. <span className="text-blue-500">One Platform.</span> Built for Every Hospital's Digital Maturity.
+              Four Paths. <span className="text-yellow-500">One Platform.</span> Built for Every Hospital's Digital Maturity.
             </h3>
             <p className="text-center opacity-70 mb-12 max-w-3xl mx-auto">
               Hospitals don't need to choose between expensive migration and doing nothing. HealthOrioBridge offers four paths — each designed for different budgets, timelines, and digital maturity levels.

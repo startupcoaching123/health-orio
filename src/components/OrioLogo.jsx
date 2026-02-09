@@ -1,6 +1,6 @@
 import React from 'react';
 // Import both logos from your assets folder
-import logoImage from '../assets/logo4.png'; 
+import logoImage from '../assets/logo5.png'; 
 import logo2Image from '../assets/logo4.png'; 
 
 const OrioLogo = ({ theme, className }) => {

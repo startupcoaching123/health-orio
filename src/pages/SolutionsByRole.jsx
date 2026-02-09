@@ -10,7 +10,13 @@ import {
    ArrowRight,
    BarChart3,
    Activity,
-   Network
+   Network,
+   Database,
+   Brain,
+   Users,
+   FileText,
+   Lock,
+   Clock
 } from 'lucide-react';
 
 // --- ANIMATION HOOK ---
@@ -32,9 +38,9 @@ const useOnScreen = (options) => {
 
 const SolutionsByRole = ({ theme }) => {
    const isLight = theme === 'light';
+   const [activeTab, setActiveTab] = useState('roles');
 
    // --- THEME CONFIG ---
-   // We use a dark background for the sections to make the Yellow POP.
    const sectionBg = isLight ? 'bg-slate-50' : 'bg-[#1F2022]';
    const textClass = isLight ? 'text-[#1F2022]' : 'text-white';
    const cardBg = isLight ? 'bg-white' : 'bg-[#2A2B2E]';
@@ -44,15 +50,222 @@ const SolutionsByRole = ({ theme }) => {
    const bgAccent = 'bg-[#F5AD3D]';
    const accentIcon = 'text-[#1F2022]';
 
+   // --- HEALTHORIO BRIDGE CONTENT ---
+   const HealthOrioBridge = () => {
+      const [ref, isVisible] = useOnScreen({ threshold: 0.3 });
+      const [forceVisible, setForceVisible] = useState(false);
+      
+      // Force visibility when this tab is active
+      React.useEffect(() => {
+         if (activeTab === 'bridge') {
+            setForceVisible(true);
+         }
+      }, [activeTab]);
+      
+      const capabilities = [
+         {
+            icon: <ShieldCheck size={24} />,
+            title: "Compliance-First by Design",
+            description: "Native support for India and UAE healthcare regulations with real-time consent tagging and audit trails."
+         },
+         {
+            icon: <Network size={24} />,
+            title: "Universal System Connectivity",
+            description: "Secure connectors for EMR, LIMS, PACS, HL7, FHIR, and proprietary hospital systems."
+         },
+         {
+            icon: <FileText size={24} />,
+            title: "Structured + Unstructured Data Ingestion",
+            description: "OCR and NLP pipelines to digitize paper records, PDFs, and scanned reports."
+         },
+         {
+            icon: <Server size={24} />,
+            title: "API-Powered Interoperability",
+            description: "Standards-aligned APIs that enable seamless data exchange across systems and partners."
+         },
+         {
+            icon: <Database size={24} />,
+            title: "Cloud-Native Data Lake",
+            description: "Unified storage for clinical, operational, and imaging data—ready for scale."
+         },
+         {
+            icon: <BarChart3 size={24} />,
+            title: "Analytics & AI Readiness",
+            description: "Clean, normalized datasets optimized for analytics, reporting, and AI/ML workflows."
+         },
+         {
+            icon: <Users size={24} />,
+            title: "Patient-Controlled Access",
+            description: "Secure patient app for record access, sharing, and consent management."
+         }
+      ];
+
+      return (
+         <div ref={ref} className="py-24 lg:py-32 px-6">
+            <div className="max-w-7xl mx-auto">
+               {/* Header */}
+               <div className={`text-center mb-16 transition-all duration-1000 ${(isVisible || forceVisible) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full ${bgAccent}/10 ${accentColor} font-bold text-xs uppercase tracking-widest mb-6`}>
+                     <Database size={14} /> B2B Platform
+                  </div>
+                  <h3 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
+                     HealthOrio <span className={accentColor}>Bridge</span>
+                  </h3>
+                  <p className="text-xl opacity-70 leading-relaxed max-w-4xl mx-auto">
+                     A compliance-first health data platform that helps hospitals integrate, migrate, and activate their data—fast and safely.
+                  </p>
+                  <p className="text-lg opacity-60 leading-relaxed max-w-4xl mx-auto mt-4">
+                     It connects fragmented legacy systems into a secure, interoperable data backbone using APIs, FHIR-aligned models, and intelligent OCR/NLP pipelines.
+                  </p>
+                  <div className={`mt-8 p-4 rounded-2xl ${bgAccent}/10 border-l-4 ${bgAccent}`}>
+                     <p className="font-bold text-lg italic">
+                        "Modernize your data. Stay compliant. Move at startup speed"
+                     </p>
+                  </div>
+               </div>
+
+               {/* Capabilities Grid */}
+               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {capabilities.map((capability, index) => (
+                     <div 
+                        key={index}
+                        className={`p-6 rounded-2xl border border-current/10 ${cardBg} transition-all duration-700 hover:scale-105 ${
+                           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                        }`}
+                        style={{ transitionDelay: `${index * 100}ms` }}
+                     >
+                        <div className={`p-3 rounded-xl ${bgAccent} ${accentIcon} w-fit mb-4`}>
+                           {capability.icon}
+                        </div>
+                        <h4 className="font-bold text-lg mb-3">{capability.title}</h4>
+                        <p className="text-sm opacity-70 leading-relaxed">{capability.description}</p>
+                     </div>
+                  ))}
+               </div>
+            </div>
+         </div>
+      );
+   };
+
+   // --- HEALTHORIO INSIGHTS CONTENT ---
+   const HealthOrioInsights = () => {
+      const [ref, isVisible] = useOnScreen({ threshold: 0.3 });
+      const [forceVisible, setForceVisible] = useState(false);
+      
+      // Force visibility when this tab is active
+      React.useEffect(() => {
+         if (activeTab === 'insights') {
+            setForceVisible(true);
+         }
+      }, [activeTab]);
+      
+      const capabilities = [
+         {
+            icon: <Brain size={24} />,
+            title: "AI-Powered Medical Report Analysis",
+            description: "Automatically extracts, structures, and summarizes medical reports into clinical insights, problem areas, monitoring plans, and recommended actions."
+         },
+         {
+            icon: <Clock size={24} />,
+            title: "Chronological Health Timeline",
+            description: "Displays reports based on actual test date (not upload date), giving doctors and patients a clear medical progression view."
+         },
+         {
+            icon: <FileText size={24} />,
+            title: "Structured + Raw Data View",
+            description: "Dual interface with AI-generated overview and detailed tabular test results for clinical transparency."
+         },
+         {
+            icon: <Lock size={24} />,
+            title: "Secure Report Sharing",
+            description: "Time-bound public link generation for sharing reports with doctors, specialists, or caregivers."
+         },
+         {
+            icon: <Brain size={24} />,
+            title: "HealthOrio AI Assistant",
+            description: "Context-aware AI chat that understands individual medical reports and enables meaningful health conversations."
+         },
+         {
+            icon: <Users size={24} />,
+            title: "Family Health Management",
+            description: "Multi-member health dashboard with individual reports, vaccination tracking, and appointment visibility."
+         },
+         {
+            icon: <ShieldCheck size={24} />,
+            title: "Vaccination Tracking System",
+            description: "Centralized vaccine status monitoring (completed, overdue, upcoming) with booster dose tracking and full history."
+         },
+         {
+            icon: <BarChart3 size={24} />,
+            title: "Analytics-Ready Architecture",
+            description: "Clean, structured datasets optimized for provider analytics, engagement tracking, and future AI/ML enhancements."
+         },
+         {
+            icon: <Lock size={24} />,
+            title: "Enterprise-Grade Security",
+            description: "OTP verification, controlled access, consent-based data sharing, and secure infrastructure."
+         }
+      ];
+
+      return (
+         <div ref={ref} className="py-24 lg:py-32 px-6">
+            <div className="max-w-7xl mx-auto">
+               {/* Header */}
+               <div className={`text-center mb-16 transition-all duration-1000 ${(isVisible || forceVisible) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full ${bgAccent}/10 ${accentColor} font-bold text-xs uppercase tracking-widest mb-6`}>
+                     <Users size={14} /> B2C Platform
+                  </div>
+                  <h3 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
+                     HealthOrio <span className={accentColor}>Insights</span>
+                  </h3>
+                  <p className="text-xl opacity-70 leading-relaxed max-w-4xl mx-auto">
+                     An AI-powered patient intelligence platform that helps hospitals transform medical reports into structured, understandable, and actionable insights.
+                  </p>
+                  <p className="text-lg opacity-60 leading-relaxed max-w-4xl mx-auto mt-4">
+                     It enables healthcare providers to deliver better patient engagement, faster clinical decisions, and improved care coordination—without adding operational burden.
+                  </p>
+               </div>
+
+               {/* Capabilities Grid */}
+               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {capabilities.map((capability, index) => (
+                     <div 
+                        key={index}
+                        className={`p-6 rounded-2xl border border-current/10 ${cardBg} transition-all duration-700 hover:scale-105 ${
+                           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                        }`}
+                        style={{ transitionDelay: `${index * 100}ms` }}
+                     >
+                        <div className={`p-3 rounded-xl ${bgAccent} ${accentIcon} w-fit mb-4`}>
+                           {capability.icon}
+                        </div>
+                        <h4 className="font-bold text-lg mb-3">{capability.title}</h4>
+                        <p className="text-sm opacity-70 leading-relaxed">{capability.description}</p>
+                     </div>
+                  ))}
+               </div>
+            </div>
+         </div>
+      );
+   };
+
    // --- 1. PROMOTERS SECTION ---
    const PromoterSection = () => {
       const [ref, isVisible] = useOnScreen({ threshold: 0.3 });
+      const [forceVisible, setForceVisible] = useState(false);
+      
+      // Force visibility when roles tab is active
+      React.useEffect(() => {
+         if (activeTab === 'roles') {
+            setForceVisible(true);
+         }
+      }, [activeTab]);
       return (
          <div ref={ref} className="py-24 lg:py-32 px-6 border-b border-current/10">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
                {/* Left: Content */}
-               <div className={`lg:w-1/2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
+               <div className={`lg:w-1/2 transition-all duration-1000 ${(isVisible || forceVisible) ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
                   <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full ${bgAccent}/10 ${accentColor} font-bold text-xs uppercase tracking-widest mb-6`}>
                      <Briefcase size={14} /> For Promoters
                   </div>
@@ -109,12 +322,20 @@ const SolutionsByRole = ({ theme }) => {
    // --- 2. MEDICAL DIRECTORS SECTION ---
    const DirectorSection = () => {
       const [ref, isVisible] = useOnScreen({ threshold: 0.3 });
+      const [forceVisible, setForceVisible] = useState(false);
+      
+      // Force visibility when roles tab is active
+      React.useEffect(() => {
+         if (activeTab === 'roles') {
+            setForceVisible(true);
+         }
+      }, [activeTab]);
       return (
          <div ref={ref} className="py-24 lg:py-32 px-6 border-b border-current/10">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24">
 
                {/* Content (Right Side) */}
-               <div className={`lg:w-1/2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
+               <div className={`lg:w-1/2 transition-all duration-1000 ${(isVisible || forceVisible) ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
                   <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full ${bgAccent}/10 ${accentColor} font-bold text-xs uppercase tracking-widest mb-6`}>
                      <Stethoscope size={14} /> For Medical Directors
                   </div>
@@ -176,12 +397,20 @@ const SolutionsByRole = ({ theme }) => {
    // --- 3. CIO/CTO SECTION ---
    const TechSection = () => {
       const [ref, isVisible] = useOnScreen({ threshold: 0.3 });
+      const [forceVisible, setForceVisible] = useState(false);
+      
+      // Force visibility when roles tab is active
+      React.useEffect(() => {
+         if (activeTab === 'roles') {
+            setForceVisible(true);
+         }
+      }, [activeTab]);
       return (
          <div ref={ref} className="py-24 lg:py-32 px-6">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
                {/* Content */}
-               <div className={`lg:w-1/2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
+               <div className={`lg:w-1/2 transition-all duration-1000 ${(isVisible || forceVisible) ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}>
                   <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full ${bgAccent}/10 ${accentColor} font-bold text-xs uppercase tracking-widest mb-6`}>
                      <Server size={14} /> For CIOs & CTOs
                   </div>
@@ -238,19 +467,65 @@ const SolutionsByRole = ({ theme }) => {
 
    return (
       <section className={`relative w-full ${sectionBg} ${textClass} font-sans transition-colors duration-700 pt-20`}>
-
          {/* Section Title */}
          <div className="pt-24 px-6 text-center">
-            <h2 className="text-sm font-bold uppercase tracking-[0.3em] opacity-60 mb-4">Value Proposition</h2>
+            <h2 className="text-sm font-bold uppercase tracking-[0.3em] opacity-60 mb-4">Solutions</h2>
             <h1 className="text-4xl md:text-6xl font-black tracking-tight">
-               Solutions by <span className={accentColor}>Role</span>
+               HealthOrio <span className={accentColor}>Platforms</span>
             </h1>
          </div>
 
-         {/* The Blocks */}
-         <PromoterSection />
-         <DirectorSection />
-         <TechSection />
+         {/* Tab Navigation */}
+         <div className="px-6 mt-12">
+            <div className="max-w-lg mx-auto flex rounded-2xl border border-current/10 p-1">
+               <button
+                  onClick={() => setActiveTab('roles')}
+                  className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 ${
+                     activeTab === 'roles'
+                        ? `${bgAccent} ${accentIcon} shadow-lg`
+                        : 'hover:bg-current/5'
+                  }`}
+               >
+                  <Briefcase size={16} className="inline mr-2" />
+                  By Role
+               </button>
+               <button
+                  onClick={() => setActiveTab('bridge')}
+                  className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 ${
+                     activeTab === 'bridge'
+                        ? `${bgAccent} ${accentIcon} shadow-lg`
+                        : 'hover:bg-current/5'
+                  }`}
+               >
+                  <Database size={16} className="inline mr-2" />
+                  Bridge
+               </button>
+               <button
+                  onClick={() => setActiveTab('insights')}
+                  className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 ${
+                     activeTab === 'insights'
+                        ? `${bgAccent} ${accentIcon} shadow-lg`
+                        : 'hover:bg-current/5'
+                  }`}
+               >
+                  <Users size={16} className="inline mr-2" />
+                  Insights
+               </button>
+            </div>
+         </div>
+
+         {/* Tab Content */}
+         <div className="transition-all duration-500">
+            {activeTab === 'roles' && (
+               <div>
+                  <PromoterSection />
+                  <DirectorSection />
+                  <TechSection />
+               </div>
+            )}
+            {activeTab === 'bridge' && <HealthOrioBridge />}
+            {activeTab === 'insights' && <HealthOrioInsights />}
+         </div>
 
       </section>
    );
