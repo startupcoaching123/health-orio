@@ -60,7 +60,7 @@ const ResourcesPage = ({ theme }) => {
          title: "Hospital KPI Benchmarks",
          category: "Data Report",
          icon: BarChart2,
-         desc: "Compare your clinical and financial performance against top-tier Indian hospitals.",
+         desc: "Compare your clinical and financial performance against top-tier hospitals.",
          isGated: true
       },
       {
