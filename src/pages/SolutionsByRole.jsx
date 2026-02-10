@@ -66,7 +66,7 @@ const SolutionsByRole = ({ theme }) => {
          {
             icon: <ShieldCheck size={24} />,
             title: "Compliance-First by Design",
-            description: "Native support for India and UAE healthcare regulations with real-time consent tagging and audit trails."
+            description: "Built to support global healthcare regulatory standards with real-time consent tagging and comprehensive audit trails."
          },
          {
             icon: <Network size={24} />,

@@ -190,7 +190,7 @@ const VBHCPage = ({ theme }) => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div className={`space-y-6 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-              <h3 className="text-lg font-bold uppercase tracking-widest opacity-50 mb-6">Indian hospitals operate under intense pressure:</h3>
+              <h3 className="text-lg font-bold uppercase tracking-widest opacity-50 mb-6">Modern Hospitals operate under intense pressure:</h3>
               <div className="space-y-4">
                 {["Thin margins", "Rising clinical input costs", "Increasing insurer scrutiny", "Limited pricing power"].map((challenge, i) => (
                   <div key={i} className="flex items-start gap-4">

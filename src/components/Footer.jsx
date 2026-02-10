@@ -1,7 +1,11 @@
 import {
   ArrowRight,
   Mail,
-  Phone
+  Phone,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Twitter
 } from 'lucide-react';
 import OrioLogo from './OrioLogo';
 
@@ -99,9 +103,35 @@ const Footer = () => {
           <div className={`text-xs tracking-wider ${mutedText}`}>
             &copy; 2026 HEALTH ORIO PVT LTD.
           </div>
-          <div className="flex gap-8">
-            <a href="#" className={`text-xs font-bold hover:text-[#F5AD3D] transition-colors ${mutedText}`}>PRIVACY</a>
-            <a href="#" className={`text-xs font-bold hover:text-[#F5AD3D] transition-colors ${mutedText}`}>TERMS</a>
+          <div className="flex gap-4">
+            <a 
+              href="#" 
+              className={`w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center ${accentColor} hover:bg-[#F5AD3D] hover:text-[#0A0A0A] transition-all`}
+              aria-label="Instagram"
+            >
+              <Instagram size={18} />
+            </a>
+            <a 
+              href="#" 
+              className={`w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center ${accentColor} hover:bg-[#F5AD3D] hover:text-[#0A0A0A] transition-all`}
+              aria-label="Facebook"
+            >
+              <Facebook size={18} />
+            </a>
+            <a 
+              href="#" 
+              className={`w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center ${accentColor} hover:bg-[#F5AD3D] hover:text-[#0A0A0A] transition-all`}
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a 
+              href="#" 
+              className={`w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center ${accentColor} hover:bg-[#F5AD3D] hover:text-[#0A0A0A] transition-all`}
+              aria-label="Twitter"
+            >
+              <Twitter size={18} />
+            </a>
           </div>
         </div>
       </div>
