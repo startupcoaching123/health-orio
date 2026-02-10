@@ -125,13 +125,7 @@ const Footer = () => {
             >
               <Linkedin size={18} />
             </a>
-            <a 
-              href="#" 
-              className={`w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center ${accentColor} hover:bg-[#F5AD3D] hover:text-[#0A0A0A] transition-all`}
-              aria-label="Twitter"
-            >
-              <Twitter size={18} />
-            </a>
+            
           </div>
         </div>
       </div>
