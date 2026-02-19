@@ -397,8 +397,8 @@ const VBHCPage = ({ theme }) => {
               </div>
             </div>
 
-            <div className={`p-8 rounded-3xl border-2 ${isLight ? 'border-blue-500 bg-blue-50' : 'border-blue-400 bg-blue-500/10'}`}>
-              <h3 className="text-2xl font-bold mb-4 text-blue-500">The HealthOrio Bridge Solution</h3>
+            <div className={`p-8 rounded-3xl border-2 ${isLight ? 'border-yellow-500 bg-yellow-50' : 'border-yellow-400 bg-yellow-500/10'}`}>
+              <h3 className="text-2xl font-bold mb-4 text-yellow-500">The HealthOrio Bridge Solution</h3>
               <p className="text-lg opacity-90 font-medium">
                 A secure, compliant, API‑powered data backbone that modernizes any hospital at any maturity level.
               </p>
@@ -421,7 +421,7 @@ const VBHCPage = ({ theme }) => {
                 }`} style={{ transitionDelay: `${idx * 100}ms` }}>
                   {/* Path Number */}
                   <div className="absolute top-4 right-4">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm ${isLight ? 'bg-blue-500 text-white' : 'bg-blue-400 text-[#1F2022]'}`}>
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm ${isLight ? 'bg-yellow-500 text-white' : 'bg-yellow-400 text-[#1F2022]'}`}>
                       {path.number}
                     </div>
                   </div>
@@ -449,7 +449,7 @@ const VBHCPage = ({ theme }) => {
                     </div>
 
                     <div className={`pt-3 border-t ${isLight ? 'border-gray-200' : 'border-white/10'}`}>
-                      <p className={`text-xs font-bold italic ${isLight ? 'text-blue-600' : 'text-blue-400'}`}>
+                      <p className={`text-xs font-bold italic ${isLight ? 'text-yellow-600' : 'text-yellow-400'}`}>
                         "{path.quote}"
                       </p>
                     </div>
