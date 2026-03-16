@@ -19,13 +19,6 @@ const Footer = () => {
     <footer className={`relative w-full ${bgClass} ${textClass} font-sans overflow-hidden border-t border-white/5`}>
 
 
-      <div className="absolute inset-0 pointer-events-none opacity-[0.02]">
-        <div className="h-full w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 border-r border-white">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="h-full border-l border-white"></div>
-          ))}
-        </div>
-      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-10">
 

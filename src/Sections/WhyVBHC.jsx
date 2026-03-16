@@ -31,17 +31,6 @@ const WhyVBHC = ({ theme }) => {
       ${bgColor} ${textColor} border-t border-white/5
       transition-colors duration-700 overflow-hidden`}
     >
-      {/* Subtle Architectural Grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <div className="h-full w-full grid grid-cols-6">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="h-full border-l border-[#1F2022]"
-            />
-          ))}
-        </div>
-      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
@@ -83,25 +72,46 @@ const WhyVBHC = ({ theme }) => {
             </p>
 
             <div className="space-y-4">
-              {[
-                { from: 'Volume', to: 'Value' },
-                { from: 'Departments', to: 'Conditions' },
-                { from: 'Revenue per Service', to: 'Outcome per Rupee' }
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className={`flex items-center justify-between p-4
-                  ${isLight ? 'bg-white/40 border-white/50' : 'bg-white/5 border-white/10'} rounded-xl border`}
-                >
-                  <span className={`font-semibold ${isLight ? 'text-gray-500' : 'text-white/40'}`}>
-                    {item.from}
-                  </span>
-                  <ArrowRight className={`w-5 h-5 animate-pulse ${!isLight ? 'text-[#F5AD3D]' : ''}`} />
-                  <span className={`font-bold text-xl ${!isLight ? 'text-white' : ''}`}>
-                    {item.to}
-                  </span>
-                </div>
-              ))}
+             {[
+  { from: 'Volume', to: 'Value' },
+  { from: 'Departments', to: 'Conditions' },
+  { from: 'Revenue per Service', to: 'Outcome per Rupee' }
+].map((item, idx) => (
+  <div
+    key={idx}
+    className={`
+      grid grid-cols-[1fr_auto_1fr] items-center gap-3
+      p-4 rounded-xl border
+      ${isLight 
+        ? 'bg-white/40 border-white/50' 
+        : 'bg-white/5 border-white/10'
+      }
+    `}
+  >
+    {/* Left Text */}
+    <span
+      className={`font-semibold text-sm sm:text-base
+      ${isLight ? 'text-gray-500' : 'text-white/40'}`}
+    >
+      {item.from}
+    </span>
+
+    {/* Arrow */}
+    <ArrowRight
+      className={`w-5 h-5 shrink-0
+      ${!isLight ? 'text-[#F5AD3D]' : ''}
+      animate-pulse`}
+    />
+
+    {/* Right Text */}
+    <span
+      className={`font-bold text-sm sm:text-lg text-right break-words
+      ${!isLight ? 'text-white' : ''}`}
+    >
+      {item.to}
+    </span>
+  </div>
+))}
             </div>
           </div>
 

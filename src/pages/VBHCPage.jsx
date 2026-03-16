@@ -62,21 +62,7 @@ const VBHCPage = ({ theme }) => {
     }, []);
 
     return (
-      <section className={`relative w-full min-h-screen ${bgClass} ${textClass} font-sans transition-colors duration-700 ease-in-out overflow-hidden flex flex-col items-center justify-center pt-30`}>
-
-        {/* --- 1. BACKGROUND LAYERS --- */}
-        <div className="absolute inset-0 opacity-[0.15] mix-blend-multiply pointer-events-none"
-          style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/noise.png")' }}>
-        </div>
-
-        <div className="absolute inset-0 pointer-events-none opacity-10"
-          style={{ transform: `translateY(${offset * 0.2}px)` }}>
-          <div className="w-full h-[150%] grid grid-cols-12 border-r border-current">
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className="border-l border-current h-full"></div>
-            ))}
-          </div>
-        </div>
+      <section className={`relative w-full min-h-screen ${bgClass} ${textClass} font-sans transition-colors duration-700 ease-in-out overflow-hidden flex flex-col items-center justify-center pt-6`}>
 
         <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[120px] opacity-40 animate-pulse-slow ${isLight ? 'bg-white' : 'bg-white/10'}`}></div>
 
@@ -229,11 +215,6 @@ const VBHCPage = ({ theme }) => {
 
     return (
       <section ref={ref} className={`relative py-32 px-6 lg:px-12 ${bgClass} ${textClass} transition-colors duration-700 overflow-hidden`}>
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="w-full h-full grid grid-cols-6 border-r border-current">
-            {[...Array(6)].map((_, i) => <div key={i} className="border-l border-current h-full"></div>)}
-          </div>
-        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
           <div className={`md:w-1/2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>

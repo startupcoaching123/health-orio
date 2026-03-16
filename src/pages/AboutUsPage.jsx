@@ -44,7 +44,7 @@ const AboutUsPage = ({ theme }) => {
       const [ref, isVisible] = useOnScreen({ threshold: 0.2 });
 
       return (
-         <section ref={ref} className="relative w-full py-35 px-6 lg:px-12 border-b border-current/10 overflow-hidden">
+         <section ref={ref} className="relative w-full pt-6 pb-12 px-6 lg:px-12 border-b border-current/10 overflow-hidden">
             {/* Background Decor */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-5 pointer-events-none">
                <Globe2 size={500} strokeWidth={0.5} />

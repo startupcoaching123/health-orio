@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CallToAction = ({ theme }) => {
   const isLight = theme === 'light';
@@ -44,17 +45,6 @@ const CallToAction = ({ theme }) => {
         {/* 2. Radial Glow Effect (Adds depth) */}
         <div className="absolute inset-0 opacity-40 mix-blend-soft-light bg-[radial-gradient(circle_at_70%_30%,rgba(230,235,224,0.2),transparent_50%)]"></div>
 
-        {/* 3. Orio Architectural Grid Overlay --- */}
-        <div className="absolute inset-0 pointer-events-none opacity-20 mix-blend-overlay">
-          <div className="h-full w-full grid grid-cols-12 border-r border-white/30">
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className="h-full border-l border-white/30"></div>
-            ))}
-          </div>
-        </div>
-
-        {/* 4. Subtle Noise Texture for premium feel */}
-        <div className='absolute inset-0 opacity-[0.15] mix-blend-overlay bg-[url("https://www.transparenttextures.com/patterns/noise.png")]'></div>
 
 
         {/* --- CONTENT --- */}
@@ -74,10 +64,10 @@ const CallToAction = ({ theme }) => {
 
           {/* Button Column */}
           <div className="flex-shrink-0">
-            <button className={`group relative inline-flex items-center gap-3 px-8 py-4 ${isLight ? 'bg-[#1F2022] text-[#E6EBE0]' : 'bg-[#F5AD3D] text-[#1F2022]'} rounded-full text-lg font-bold shadow-2xl hover:scale-105 transition-all duration-300 active:scale-95`}>
+            <Link to="/contact" className={`group relative inline-flex items-center gap-3 px-8 py-4 ${isLight ? 'bg-[#1F2022] text-[#E6EBE0]' : 'bg-[#F5AD3D] text-[#1F2022]'} rounded-full text-lg font-bold shadow-2xl hover:scale-105 transition-all duration-300 active:scale-95`}>
               <span>Book a Hospital Assessment</span>
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
 
         </div>

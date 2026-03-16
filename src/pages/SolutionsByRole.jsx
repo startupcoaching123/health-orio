@@ -112,12 +112,12 @@ const SolutionsByRole = ({ theme }) => {
                      HealthOrio <span className={accentColor}>Bridge</span>
                   </h3>
                   <p className="text-xl opacity-70 leading-relaxed max-w-4xl mx-auto">
-                     A compliance-first health data platform that helps hospitals integrate, migrate, and activate their data—fast and safely.
+                     A compliance-first health data platform that helps hospitals integrate, migrate, and activate their data fast and safely.
                   </p>
                   <p className="text-lg opacity-60 leading-relaxed max-w-4xl mx-auto mt-4">
                      It connects fragmented legacy systems into a secure, interoperable data backbone using APIs, FHIR-aligned models, and intelligent OCR/NLP pipelines.
                   </p>
-                  <div className={`mt-8 p-4 rounded-2xl ${bgAccent}/10 border-l-4 ${bgAccent}`}>
+                  <div className={`mt-8 p-4 rounded-2xl bg-[#F5AD3D]/10 border-l-4 border-[#F5AD3D]`}>
                      <p className="font-bold text-lg italic">
                         "Modernize your data. Stay compliant. Move at startup speed"
                      </p>
@@ -222,7 +222,7 @@ const SolutionsByRole = ({ theme }) => {
                      An AI-powered patient intelligence platform that helps hospitals transform medical reports into structured, understandable, and actionable insights.
                   </p>
                   <p className="text-lg opacity-60 leading-relaxed max-w-4xl mx-auto mt-4">
-                     It enables healthcare providers to deliver better patient engagement, faster clinical decisions, and improved care coordination—without adding operational burden.
+                     It enables healthcare providers to deliver better patient engagement, faster clinical decisions, and improved care coordination without adding operational burden.
                   </p>
                </div>
 
@@ -466,9 +466,9 @@ const SolutionsByRole = ({ theme }) => {
    };
 
    return (
-      <section className={`relative w-full ${sectionBg} ${textClass} font-sans transition-colors duration-700 pt-20`}>
+      <section className={`relative w-full ${sectionBg} ${textClass} font-sans transition-colors duration-700 pt-6 overflow-x-hidden`}>
          {/* Section Title */}
-         <div className="pt-24 px-6 text-center">
+         <div className="pt-6 px-6 text-center">
             <h2 className="text-sm font-bold uppercase tracking-[0.3em] opacity-60 mb-4">Solutions</h2>
             <h1 className="text-4xl md:text-6xl font-black tracking-tight">
                HealthOrio <span className={accentColor}>Platforms</span>
@@ -480,7 +480,7 @@ const SolutionsByRole = ({ theme }) => {
             <div className="max-w-lg mx-auto flex rounded-2xl border border-current/10 p-1">
                <button
                   onClick={() => setActiveTab('roles')}
-                  className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 ${
+                  className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 cursor-pointer ${
                      activeTab === 'roles'
                         ? `${bgAccent} ${accentIcon} shadow-lg`
                         : 'hover:bg-current/5'
@@ -491,7 +491,7 @@ const SolutionsByRole = ({ theme }) => {
                </button>
                <button
                   onClick={() => setActiveTab('bridge')}
-                  className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 ${
+                  className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 cursor-pointer ${
                      activeTab === 'bridge'
                         ? `${bgAccent} ${accentIcon} shadow-lg`
                         : 'hover:bg-current/5'
@@ -502,7 +502,7 @@ const SolutionsByRole = ({ theme }) => {
                </button>
                <button
                   onClick={() => setActiveTab('insights')}
-                  className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 ${
+                  className={`flex-1 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 cursor-pointer ${
                      activeTab === 'insights'
                         ? `${bgAccent} ${accentIcon} shadow-lg`
                         : 'hover:bg-current/5'

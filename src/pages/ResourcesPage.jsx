@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
    BookOpen,
    Settings,
@@ -30,6 +31,7 @@ const useOnScreen = (options) => {
 
 const ResourcesPage = ({ theme }) => {
    const isLight = theme === 'light';
+   const navigate = useNavigate();
 
    // --- THEME CONFIG ---
    const bgClass = isLight ? 'bg-slate-50' : 'bg-[#1F2022]';
@@ -76,7 +78,7 @@ const ResourcesPage = ({ theme }) => {
    const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
 
    return (
-      <section ref={ref} className={`relative w-full py-30 px-6 ${bgClass} ${textClass} transition-colors duration-700 font-sans`}>
+      <section ref={ref} className={`relative w-full pt-6 pb-12 px-6 ${bgClass} ${textClass} transition-colors duration-700 font-sans`}>
          <div className="max-w-7xl mx-auto">
 
             {/* Header */}
@@ -135,7 +137,7 @@ const ResourcesPage = ({ theme }) => {
                      </p>
 
                      {/* Action Button */}
-                     <button className={`w-full py-4 rounded-xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2 transition-all duration-300
+                     <button onClick={() => navigate('/contact')} className={`w-full py-4 rounded-xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer transition-all duration-300
                      ${item.isGated
                            ? `bg-current/5 hover:${bgAccent} hover:${accentIcon} text-current`
                            : `${bgAccent} ${accentIcon} hover:bg-white`
@@ -159,9 +161,6 @@ const ResourcesPage = ({ theme }) => {
 
             {/* Bottom CTA: Lead Gen */}
             <div className={`relative rounded-[3rem] overflow-hidden p-8 md:p-12 text-center border ${isLight ? 'bg-[#1F2022] text-white border-transparent' : 'bg-white text-[#1F2022] border-transparent'} transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-
-               {/* Background Pattern */}
-               <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
 
                <div className="relative z-10 max-w-2xl mx-auto">
                   <FileText size={48} className="mx-auto mb-6 opacity-80" />

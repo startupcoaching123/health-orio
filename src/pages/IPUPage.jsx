@@ -2,13 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
    Heart,
    Baby,
-   Activity, // For Ortho/Generic
+   Activity,
    TrendingUp,
    DollarSign,
    CheckCircle2,
    PieChart,
    Stethoscope,
-   ArrowRight,
    Cross
 } from 'lucide-react';
 
@@ -43,7 +42,7 @@ const IPUSolutionsPage = ({ theme }) => {
       const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
 
       return (
-         <section ref={ref} className="w-full max-w-7xl mx-auto px-6 py-35">
+         <section ref={ref} className="w-full max-w-7xl mx-auto px-6 pt-6 pb-12">
 
             {/* Section Header */}
             <div className={`mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -204,11 +203,6 @@ const IPUSolutionsPage = ({ theme }) => {
                            </li>
                         ))}
                      </ul>
-
-                     {/* Hover Arrow */}
-                     <div className={`absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 ${item.color}`}>
-                        <ArrowRight size={24} />
-                     </div>
                   </div>
                ))}
             </div>

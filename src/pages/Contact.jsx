@@ -42,10 +42,7 @@ const ContactAssessment = ({ theme }) => {
    const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
 
    return (
-      <section ref={ref} className={`relative w-full min-h-screen py-40 px-6 lg:px-12 ${bgClass} ${textClass} transition-colors duration-700 font-sans flex items-center`}>
-
-         {/* Background Decor */}
-         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-5 pointer-events-none" style={{ background: `radial-gradient(circle, ${isLight ? '#1F2022' : '#E6EBE0'} 0%, transparent 70%)` }}></div>
+      <section ref={ref} className={`relative w-full min-h-screen pt-6 pb-12 px-6 lg:px-12 ${bgClass} ${textClass} transition-colors duration-700 font-sans flex items-center overflow-x-hidden`}>
 
          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 

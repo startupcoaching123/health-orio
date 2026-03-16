@@ -88,14 +88,6 @@ const MeasurableImpact = ({ theme }) => {
       ref={sectionRef}
       className={`relative w-full py-24 px-6 lg:px-12 ${sectionBg} ${textColor} border-t border-white/5 transition-colors duration-700 overflow-hidden`}
     >
-      {/* Background Decor (Subtle Grid) */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
-        <div className="w-full h-full grid grid-cols-6 lg:grid-cols-12 gap-4">
-          {[...Array(12)].map((_, i) => (
-            <div key={i} className="h-full border-r border-current"></div>
-          ))}
-        </div>
-      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
 

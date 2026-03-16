@@ -48,11 +48,11 @@ const WhoWeWorkWith = ({ theme }) => {
       ref={sectionRef}
       className={`relative w-full py-24 px-6 lg:px-12 ${sectionBg} ${textColor} border-t border-white/5 transition-colors duration-700 overflow-hidden`}
     >
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-b from-white/20 to-transparent rounded-full blur-3xl pointer-events-none mix-blend-overlay"></div>
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-gradient-to-b from-white/20 to-transparent rounded-full blur-3xl pointer-events-none mix-blend-overlay"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
 
-        <div className={`mb-20 flex flex-col md:flex-row items-end justify-between gap-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`mb-20 flex flex-col md:flex-row items-start md:items-end justify-between gap-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="max-w-xl">
             <div className="flex items-center gap-2 mb-4">
               <span className="w-12 h-[2px] bg-current opacity-30"></span>
@@ -86,9 +86,9 @@ const WhoWeWorkWith = ({ theme }) => {
 
               {/* Massive Number Typography */}
               <div className="flex items-baseline gap-1 mb-2">
-                <span className="text-7xl font-black tracking-tighter leading-none">50</span>
-                <span className="text-4xl font-light opacity-50">–</span>
-                <span className="text-7xl font-black tracking-tighter leading-none">100</span>
+                <span className="text-5xl md:text-7xl font-black tracking-tighter leading-none">50</span>
+                <span className="text-2xl md:text-4xl font-light opacity-50">–</span>
+                <span className="text-5xl md:text-7xl font-black tracking-tighter leading-none">100</span>
               </div>
               <div className="text-sm font-bold uppercase tracking-widest opacity-60 mb-6 pl-1">Bed Capacity</div>
 
@@ -128,7 +128,9 @@ const WhoWeWorkWith = ({ theme }) => {
           >
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg bg-current opacity-10"><Users size={20} /></div>
+                <div className={`p-2 rounded-lg ${isLight ? 'bg-[#1F2022]' : 'bg-white/10'}`}>
+                  <Users size={20} className={isLight ? 'text-white' : 'text-white'} />
+                </div>
                 <h3 className="text-xl font-bold">Decision Makers</h3>
               </div>
               <p className={`text-sm font-medium ${mutedText}`}>

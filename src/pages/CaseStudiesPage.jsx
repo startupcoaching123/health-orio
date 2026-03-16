@@ -42,7 +42,7 @@ const CaseStudiesPage = ({ theme }) => {
       const [ref, isVisible] = useOnScreen({ threshold: 0.2 });
 
       return (
-         <section ref={ref} className="w-full max-w-6xl mx-auto px-6 py-35">
+         <section ref={ref} className="w-full max-w-6xl mx-auto px-6 pt-6 pb-12">
 
             {/* Section Header */}
             <div className={`mb-16 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

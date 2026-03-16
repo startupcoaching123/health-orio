@@ -5,7 +5,6 @@ import HeroSection from './components/Hero';
 import WhyVBHC from './Sections/WhyVBHC';
 import TheProblem from './Sections/TheProblem';
 import TheSolution from './Sections/TheSolution';
-import MeasurableImpact from './Sections/MeasurableImpact';
 import WhoWeWorkWith from './Sections/WhoWeWorkWith';
 import CallToAction from './Sections/CallToAction';
 import Footer from './components/Footer';
@@ -13,6 +12,7 @@ import VBHCPage from './pages/VBHCPage';
 import WhatWeSolvePage from './pages/WhatWeSolvePage';
 import PlatformPage from './pages/PlatformPage';
 import IPUSolutionsPage from './pages/IPUPage';
+import ROISection from './Sections/ROISection';
 import ROIPage from './pages/ROIPage';
 import CaseStudiesPage from './pages/CaseStudiesPage';
 import SolutionsByRole from './pages/SolutionsByRole.jsx';
@@ -43,7 +43,7 @@ const App = () => {
   return (
     <Router>
       <ScrollToTop />
-      <div className={`w-full min-h-screen transition-colors duration-700`}>
+      <div className={`w-full min-h-screen overflow-x-hidden transition-colors duration-700`}>
         
         {/* Navbar: Controls the theme */}
         <OrioNavbar theme={theme} toggleTheme={toggleTheme} />
@@ -59,7 +59,7 @@ const App = () => {
               <WhyVBHC theme={theme} />
               <TheProblem theme={theme} />
               <TheSolution theme={theme} />
-              <MeasurableImpact theme={theme} />
+              <ROISection theme={theme} />
               <WhoWeWorkWith theme={theme} />
               <CallToAction theme={theme} />
             </>
