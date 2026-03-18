@@ -47,13 +47,8 @@ const PlatformPage = ({ theme }) => {
       ];
 
       return (
-         <section ref={ref} className={`relative min-h-[85vh] w-full ${bgClass} ${textClass} flex flex-col items-center justify-center pt-32 pb-16 px-6 overflow-hidden`}>
+         <section ref={ref} className={`relative min-h-[85vh] w-full ${bgClass} ${textClass} flex flex-col items-center justify-center pt-6 pb-16 px-6 overflow-hidden`}>
 
-            {/* Abstract Connectivity Lines */}
-            <div className="absolute inset-0 pointer-events-none opacity-10">
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-current rounded-full animate-[spin_60s_linear_infinite]"></div>
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border border-dashed border-current rounded-full animate-[spin_40s_linear_infinite_reverse]"></div>
-            </div>
 
             <div className="relative z-10 max-w-4xl mx-auto text-center">
 
@@ -111,10 +106,10 @@ const PlatformPage = ({ theme }) => {
       const textClass = isLight ? 'text-[#1F2022]' : 'text-white';
 
       const layers = [
-         { id: "01", title: "IPU Enablement Layer", desc: "Condition-wise dashboards and care pathway tracking.", icon: Activity, color: "text-purple-500" },
-         { id: "02", title: "Analytics & Insights Engine", desc: "Tracks outcomes, costs, LOS, utilization, and margins.", icon: Layers, color: isLight ? "text-[#1F2022]" : "text-[#E6EBE0]" },
-         { id: "03", title: "Unified Data Layer", desc: "Combines clinical, operational, and financial data.", icon: Database, color: "text-teal-500" },
-         { id: "04", title: "Integration Layer", desc: "Connects all hospital systems into a single data flow.", icon: Server, color: "text-orange-500" },
+         { id: "01", title: "IPU Enablement Layer", desc: "Condition-wise dashboards and care pathway tracking.", icon: Activity, color: "text-purple-500", borderColor: "bg-purple-500" },
+         { id: "02", title: "Analytics & Insights Engine", desc: "Tracks outcomes, costs, LOS, utilization, and margins.", icon: Layers, color: isLight ? "text-[#1F2022]" : "text-[#E6EBE0]", borderColor: isLight ? "bg-[#1F2022]" : "bg-[#E6EBE0]" },
+         { id: "03", title: "Unified Data Layer", desc: "Combines clinical, operational, and financial data.", icon: Database, color: "text-teal-500", borderColor: "bg-teal-500" },
+         { id: "04", title: "Integration Layer", desc: "Connects all hospital systems into a single data flow.", icon: Server, color: "text-orange-500", borderColor: "bg-orange-500" },
       ];
 
       return (
@@ -156,7 +151,7 @@ const PlatformPage = ({ theme }) => {
                               <p className="opacity-70 text-sm font-medium leading-relaxed">{layer.desc}</p>
                            </div>
                         </div>
-                        <div className={`absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl ${layer.color.replace('text', 'bg')} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                        <div className={`absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl ${layer.borderColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                      </div>
                   ))}
                </div>

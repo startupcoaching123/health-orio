@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Sun, Moon, Menu, X, ArrowUpRight, MessageCircle } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import OrioLogo from './OrioLogo';
-import { useNavigate } from 'react-router-dom';
 
 const handleClientRedirect = () => {
   window.open("https://dev-ui.healthorio.ai/", "_blank", "noopener,noreferrer");
@@ -11,7 +10,12 @@ const handleClientRedirect = () => {
 const OrioNavbar = ({ theme, toggleTheme }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
+  
+  useEffect(() => {
+  setIsMobileMenuOpen(false);
+}, [location.pathname]);
 
   // Handle Scroll Effect
   useEffect(() => {
@@ -25,26 +29,22 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
   // Base text color
   const textColor = theme === 'light' ? 'text-[#1F2022]' : 'text-white';
   const navBg = theme === 'light'
-    ? (scrolled ? 'bg-white/60 border-white/40 shadow-black/5' : 'bg-white/30 border-white/20')
-    : (scrolled ? 'bg-[#0E0E0F]/80 border-white/10 shadow-white/5' : 'bg-[#0E0E0F]/40 border-white/5');
+    ? 'bg-white border-gray-200 shadow-black/5'
+    : 'bg-[#0E0E0F] border-white/10 shadow-white/5';
 
   return (
     <>
       <nav
-        className={`fixed left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-6xl font-sans transition-all duration-500 ease-out
-        ${scrolled ? 'top-4' : 'top-6'}`}
+        className={`fixed top-0 left-0 right-0 z-[100] font-sans transition-all duration-500 ease-out
+        ${navBg} ${scrolled ? 'shadow-xl' : ''} border-b`}
       >
         <div
-          className={`
-            relative flex items-center justify-between px-6 py-4 rounded-2xl transition-all duration-500 border backdrop-blur-xl shadow-xl
-            ${navBg}
-            animate-fade-in-down
-          `}
+          className="relative flex items-center justify-between px-6 py-4 max-w-7xl mx-auto animate-fade-in-down"
         >
 
           {/* --- LOGO SECTION --- */}
           <div onClick={() => navigate('/')} className={`flex items-center gap-3 font-bold text-xl tracking-tighter ${textColor} group cursor-pointer`}>
-            <div className="">
+            <div>
               <OrioLogo theme={theme} className="w-10 h-10" />
             </div>
             <span className="group-hover:opacity-70 transition-opacity">
@@ -53,36 +53,38 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
           </div>
 
           {/* --- DESKTOP LINKS --- */}
-          <div className={`hidden md:flex items-center gap-8 font-medium text-sm ${textColor}`}>
-            {[
-              { name: 'Solutions', href: '/solutions-by-role' },
-              { name: 'VBHC', href: '/vbhc' },
-              { name: 'Platform', href: '/platform' },
-              { name: 'IPU', href: '/ipu-solutions' },
-              { name: 'ROI', href: 'roi' },
-              { name: 'Resources', href: '/resources' }
-            ].map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="relative group py-1"
-              >
-                <span className="relative z-10 opacity-80 group-hover:opacity-100 transition-opacity">
-                  {item.name}
-                </span>
-                {/* Animated Underline */}
-                <span className={`absolute bottom-0 left-0 w-0 h-[2px] ${theme === 'light' ? 'bg-[#1F2022]' : 'bg-[#F5AD3D]'} transition-all duration-300 group-hover:w-full ease-in-out`}></span>
-              </Link>
-            ))}
+          <div className={`hidden md:flex items-center gap-1 font-medium text-sm ${textColor}`}>
+{[
+  { name: 'Solutions', href: '/solutions-by-role' },
+  { name: 'VBHC', href: '/vbhc' },
+  { name: 'Platform', href: '/platform' },
+  { name: 'IPU', href: '/ipu-solutions' },
+  { name: 'Resources', href: '/resources' },
+].map((item) => {
+  const isActive = location.pathname === item.href;
+  return (
+  <Link
+    key={item.name}
+    to={item.href}
+    className={`flex items-center gap-1.5 py-2 px-3 rounded-lg text-sm font-semibold cursor-pointer transition-all duration-200
+      ${isActive
+        ? (theme === 'light' ? 'bg-[#1F2022] text-white' : 'bg-[#F5AD3D] text-[#1F2022]')
+        : (theme === 'light' ? 'text-[#1F2022] hover:bg-black/5' : 'text-white hover:bg-white/10')
+      }`}
+  >
+    {item.name}
+  </Link>
+  );
+})}
           </div>
 
           {/* --- ACTIONS --- */}
           <div className="flex items-center gap-3">
 
-            {/* Theme Toggle (Tactile Switch) */}
+            {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className={`relative p-2.5 rounded-full ${theme === 'light' ? 'bg-white/40 border-white/20 hover:bg-white hover:border-black/5' : 'bg-black/40 border-white/10 hover:bg-black/60 hover:border-white/20'} hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm group overflow-hidden`}
+              className={`relative p-2.5 rounded-full ${theme === 'light' ? 'bg-gray-100 border border-gray-200 hover:bg-gray-200' : 'bg-white/10 border border-white/10 hover:bg-white/20'} hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm`}
               aria-label="Toggle Theme"
             >
               <div className={`relative w-5 h-5 ${textColor}`}>
@@ -91,8 +93,18 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
               </div>
             </button>
 
-            {/* CTA Button (Modern & Shiny) */}
-            <button onClick={handleClientRedirect} className={`hidden md:flex items-center gap-2 ${theme === 'light' ? 'bg-[#1F2022] text-white hover:bg-black' : 'bg-[#F5AD3D] text-[#1F2022] hover:bg-white'} pl-5 pr-4 py-2.5 rounded-xl text-sm font-semibold 
+            {/* CTA Button - Talk to Us */}
+            <Link
+              to="/contact"
+              className={`hidden md:flex items-center gap-2 ${theme === 'light' ? 'bg-[#1F2022] text-white hover:bg-black' : 'bg-[#F5AD3D] text-[#1F2022] hover:bg-white'} pl-5 pr-4 py-2.5 rounded-xl text-sm font-semibold
+              hover:shadow-lg transition-all duration-300 group`}>
+              <MessageCircle className="w-4 h-4" />
+              Talk to Us
+              <ArrowUpRight className={`w-4 h-4 ${theme === 'light' ? 'text-white/50' : 'text-[#1F2022]/50'} group-hover:text-current group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all`} />
+            </Link>
+
+            {/* CTA Button - Healthorio Insights */}
+            <button onClick={handleClientRedirect} className={`hidden md:flex items-center gap-2 ${theme === 'light' ? 'bg-[#1F2022] text-white hover:bg-black' : 'bg-[#F5AD3D] text-[#1F2022] hover:bg-white'} pl-5 pr-4 py-2.5 rounded-xl text-sm font-semibold
               hover:shadow-lg transition-all duration-300 group`}>
               Healthorio Insights
               <ArrowUpRight className={`w-4 h-4 ${theme === 'light' ? 'text-white/50' : 'text-[#1F2022]/50'} group-hover:text-current group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all`} />
@@ -104,7 +116,6 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <div className="relative w-6 h-6">
-                {/* CSS Transition for Icon Swap */}
                 <div className={`absolute inset-0 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'}`}>
                   <Menu />
                 </div>
@@ -117,33 +128,53 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
         </div>
 
         {/* --- MOBILE DROPDOWN (Smooth Reveal) --- */}
-        <div className={`absolute top-full left-0 w-full pt-2 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] origin-top
+        {isMobileMenuOpen && (
+          <div 
+            className="fixed inset-0 top-[72px] z-[98] bg-black/40 md:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+        <div className={`absolute top-full left-0 w-full pt-0 px-0 z-[101] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] origin-top md:hidden
           ${isMobileMenuOpen ? 'opacity-100 translate-y-0 scale-100 visible' : 'opacity-0 -translate-y-4 scale-95 invisible'}`}>
 
-          <div className={`${theme === 'light' ? 'bg-white/90 border-white/20' : 'bg-[#0E0E0F]/90 border-white/10'} backdrop-blur-2xl rounded-2xl p-6 shadow-2xl border flex flex-col gap-2`}>
+          <div className={`${theme === 'light' ? 'bg-white border-gray-200' : 'bg-[#0E0E0F] border-white/10'} p-6 shadow-2xl border-b flex flex-col gap-2`}>
             {[
               { name: 'Solutions', href: '/solutions-by-role' },
               { name: 'VBHC', href: '/vbhc' },
               { name: 'Platform', href: '/platform' },
               { name: 'IPU', href: '/ipu-solutions' },
-              { name: 'ROI', href: '/roi' }
-            ].map((item, index) => (
+              { name: 'Resources', href: '/resources' },
+            ].map((item) => {
+              const isActive = location.pathname === item.href;
+              return (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`group flex items-center justify-between py-3 px-4 rounded-xl hover:${theme === 'light' ? 'bg-black/5' : 'bg-white/5'} transition-colors`}
-                style={{ transitionDelay: `${index * 50}ms` }} // Staggered Animation
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`flex items-center justify-between py-3 px-4 rounded-xl transition-colors
+                  ${isActive
+                    ? (theme === 'light' ? 'bg-[#1F2022] text-white' : 'bg-[#F5AD3D] text-[#1F2022]')
+                    : (theme === 'light' ? 'text-[#1F2022] hover:bg-black/5' : 'text-white hover:bg-white/5')
+                  }`}
               >
-                <span className={`font-semibold text-lg ${textColor}`}>{item.name}</span>
-                <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                <span className="font-semibold text-lg">{item.name}</span>
+                <ArrowUpRight className="w-4 h-4 opacity-50" />
               </Link>
-            ))}
-            <button onClick={handleClientRedirect} className={`mt-4 w-full ${theme === 'light' ? 'bg-[#1F2022] text-white' : 'bg-[#F5AD3D] text-[#1F2022]'} py-4 rounded-xl font-bold text-lg active:scale-95 transition-transform`}>
+              );
+            })}
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className={`mt-4 w-full flex items-center justify-center gap-2 ${theme === 'light' ? 'bg-[#1F2022] text-white' : 'bg-[#F5AD3D] text-[#1F2022]'} py-4 rounded-xl font-bold text-lg active:scale-95 transition-transform`}>
+              <MessageCircle className="w-5 h-5" />
+              Talk to Us
+            </Link>
+            <button onClick={handleClientRedirect} className={`w-full ${theme === 'light' ? 'bg-[#1F2022] text-white' : 'bg-[#F5AD3D] text-[#1F2022]'} py-4 rounded-xl font-bold text-lg active:scale-95 transition-transform`}>
               Healthorio Insights
             </button>
           </div>
         </div>
       </nav>
+
+      {/* Spacer to push content below fixed navbar */}
+      <div className="h-[72px]" />
 
       {/* --- CUSTOM ANIMATIONS --- */}
       <style jsx>{`

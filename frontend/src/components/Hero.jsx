@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import OrioLogo from './OrioLogo';
+import { Link } from 'react-router-dom';
 
 const HeroSection = ({ theme }) => {
   // --- THEME LOGIC ---
@@ -9,25 +9,11 @@ const HeroSection = ({ theme }) => {
   const borderClass = theme === 'light' ? 'border-[#1F2022]/10' : 'border-white/5';
 
   return (
-    <div className={`relative w-full min-h-screen ${bgClass} font-sans ${textClass} transition-colors duration-700 ease-in-out overflow-hidden flex flex-col pt-10`}>
+    <div className={`relative w-full min-h-screen ${bgClass} font-sans ${textClass} transition-colors duration-700 ease-in-out overflow-hidden flex flex-col`}>
 
-      {/* --- 1. BACKGROUND GRID --- */}
-      {/* Added 'overflow-hidden' and ensured lines don't create scrollbars */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className={`w-full h-full grid grid-cols-6 md:grid-cols-12 max-w-[90%] mx-auto border-r ${borderClass}`}>
-          {[...Array(12)].map((_, i) => (
-            <div 
-              key={i} 
-              className={`h-full border-l ${borderClass} ${i < 6 ? 'block' : 'hidden md:block'}`}
-            ></div>
-          ))}
-        </div>
-        <div className={`absolute top-1/2 w-full border-b ${borderClass}`}></div>
-      </div>
 
       {/* --- 2. MAIN CONTENT --- */}
-      {/* Adjusted padding: pt-24 ensures space for fixed headers, pb-32 leaves room for the logo below */}
-      <div className="relative z-10 flex-grow flex flex-col items-center justify-center px-5 sm:px-10 text-center pt-20 pb-32 md:pb-20">
+      <div className="relative z-10 flex-grow flex flex-col items-center justify-center px-5 sm:px-10 text-center pt-6 pb-32 md:pb-20">
 
         {/* A. HEADLINE */}
         {/* Adjusted text size for mobile (text-4xl) vs desktop */}
@@ -58,26 +44,16 @@ const HeroSection = ({ theme }) => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
 
           {/* Primary Button */}
-          <button className={`w-full sm:w-auto h-14 px-6 md:px-8 rounded-xl ${theme === 'light' ? 'bg-[#1F2022] text-[#E6EBE0]' : 'bg-[#F5AD3D] text-[#1F2022]'} text-sm md:text-lg font-bold hover:scale-105 transition-all active:scale-95`}>
+          <Link to="/contact" className={`w-full sm:w-auto h-14 px-6 md:px-8 rounded-xl ${theme === 'light' ? 'bg-[#1F2022] text-[#E6EBE0]' : 'bg-[#F5AD3D] text-[#1F2022]'} text-sm md:text-lg font-bold hover:scale-105 transition-all active:scale-95 flex items-center justify-center`}>
             Request VBHC Assessment
-          </button>
+          </Link>
 
           {/* Secondary Button */}
-          <button className={`w-full sm:w-auto h-14 px-4 flex items-center justify-center gap-2 ${theme === 'light' ? 'text-[#1F2022]' : 'text-white'} text-sm md:text-lg font-bold border-b-2 border-transparent hover:border-current transition-all`}>
+          <button onClick={() => document.getElementById('roi-section')?.scrollIntoView({ behavior: 'smooth' })} className={`w-full sm:w-auto h-14 px-4 flex items-center justify-center gap-2 ${theme === 'light' ? 'text-[#1F2022]' : 'text-white'} text-sm md:text-lg font-bold border-b-2 border-transparent hover:border-current transition-all cursor-pointer`}>
             See IPU ROI <ArrowRight size={18} className={theme === 'dark' ? 'text-[#F5AD3D]' : ''} />
           </button>
 
         </div>
-      </div>
-
-      {/* --- 3. BRANDING --- */}
-      {/* Centered on mobile, left-aligned on desktop */}
-      <div className="absolute bottom-6 left-0 right-0 md:left-12 md:right-auto z-20 flex items-center justify-center md:justify-start gap-3 md:gap-5 tracking-tighter group cursor-pointer">
-        <OrioLogo theme={theme} className="w-10 h-10 md:w-14 md:h-14 drop-shadow-2xl" />
-        <span className="text-2xl md:text-3xl font-black tracking-wide">
-          <span className={theme === 'light' ? 'text-[#1F2022]' : 'text-[#F5AD3D]'}>HEALTH</span> 
-          <span className={`font-light transition-colors duration-700 ${theme === 'light' ? 'text-[#1F2022]/60' : 'text-white/60'}`}>ORIO</span>
-        </span>
       </div>
 
     </div>

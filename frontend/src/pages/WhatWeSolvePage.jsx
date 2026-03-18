@@ -39,10 +39,10 @@ const WhatWeSolvePage = ({ theme }) => {
       const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
       const bgClass = isLight ? 'bg-slate-50' : 'bg-[#1F2022]';
       const textClass = isLight ? 'text-[#1F2022]' : 'text-white';
-      const gridColor = isLight ? 'border-[#1F2022]/5' : 'border-white/5';
+      const gridColor = isLight ? 'border-[#1F2022]/3' : 'border-white/5';
 
       return (
-         <section ref={ref} className={`relative min-h-screen w-full ${bgClass} ${textClass} flex flex-col justify-center py-24 px-6 overflow-hidden`}>
+         <section ref={ref} className={`relative min-h-screen w-full ${bgClass} ${textClass} flex flex-col justify-center pt-6 pb-12 px-6 overflow-hidden`}>
 
             {/* Abstract "Broken" Background */}
             <div className="absolute inset-0 pointer-events-none">

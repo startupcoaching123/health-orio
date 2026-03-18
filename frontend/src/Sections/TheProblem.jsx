@@ -78,22 +78,6 @@ const TheProblem = ({ theme }) => {
       ref={sectionRef}
       className={`relative w-full py-24 px-6 lg:px-12 ${sectionBg} ${mainTextColor} border-t border-white/5 transition-colors duration-700 ease-in-out overflow-hidden`}
     >
-      {/* --- ENHANCED ARCHITECTURAL GRID --- */}
-      <div className="absolute inset-0 pointer-events-none opacity-15">
-        {/* Vertical Lines */}
-        <div className="h-full w-full max-w-7xl mx-auto grid grid-cols-12 border-r border-[#1F2022]">
-          {[...Array(12)].map((_, i) => (
-            <div key={i} className="h-full border-l border-[#1F2022] relative">
-              {/* Add small crosshairs at intersections for "Blueprint" feel */}
-              <div className="absolute top-24 -left-1.5 w-3 h-[1px] bg-[#1F2022]"></div>
-              <div className="absolute top-24 -left-[1px] w-[1px] h-3 bg-[#1F2022]"></div>
-            </div>
-          ))}
-        </div>
-        {/* Horizontal Guide Lines */}
-        <div className="absolute top-24 w-full border-t border-[#1F2022]"></div>
-        <div className="absolute bottom-24 w-full border-t border-[#1F2022]"></div>
-      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
 
@@ -112,6 +96,7 @@ const TheProblem = ({ theme }) => {
             The Problem with <br />
             <span className={isLight ? 'opacity-50' : 'text-[#F5AD3D]'}>Today’s Hospital Model</span>
           </h2>
+
 
           <p className="text-xl font-medium leading-relaxed opacity-90 mb-8 max-w-md">
             Most hospitals struggle with disconnected systems. This results in <span className="underline decoration-2 underline-offset-4">higher costs</span>, <span className="underline decoration-2 underline-offset-4">inconsistent outcomes</span>, and underutilized capacity.
@@ -142,21 +127,12 @@ const TheProblem = ({ theme }) => {
 
                   {/* Text */}
                   <div className="flex-grow">
-                    {index === 0 ? (
-                      <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-                        Healthcare is <span className="text-[#F5AD3D]">Fragmented.</span> <br />
-                        We Connect It.
-                      </h2>
-                    ) : (
-                      <>
-                        <h3 className="text-lg md:text-xl font-bold mb-1 group-hover:translate-x-1 transition-transform">
-                          {item.title}
-                        </h3>
-                        <p className={`text-sm md:text-base font-medium leading-snug ${mutedTextColor}`}>
-                          {item.desc}
-                        </p>
-                      </>
-                    )}
+                    <h3 className="text-lg md:text-xl font-bold mb-1 group-hover:translate-x-1 transition-transform">
+                      {item.title}
+                    </h3>
+                    <p className={`text-sm md:text-base font-medium leading-snug ${mutedTextColor}`}>
+                      {item.desc}
+                    </p>
                   </div>
 
                   {/* Arrow Indicator (Visible on hover) */}

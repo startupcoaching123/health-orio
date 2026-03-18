@@ -5,7 +5,12 @@ import {
   Scale,
   ArrowRight,
   CheckCircle2,
-  TrendingUp
+  TrendingUp,
+  TrendingDown,
+  Clock,
+  PieChart,
+  ArrowUpRight,
+  ArrowDownRight
 } from 'lucide-react';
 
 const TheSolution = ({ theme }) => {
@@ -59,15 +64,59 @@ const TheSolution = ({ theme }) => {
     }
   ];
 
+  const stats = [
+    {
+      id: 1,
+      label: "Revenue Growth",
+      subLabel: "Increase in ARPOB / ARPE",
+      value: "8–15%",
+      icon: TrendingUp,
+      color: "text-emerald-500",
+      bgAccent: "bg-emerald-500",
+      trend: "up"
+    },
+    {
+      id: 2,
+      label: "Cost Efficiency",
+      subLabel: "Reduction in Cost per Episode",
+      value: "10–20%",
+      icon: TrendingDown,
+      color: "text-blue-500",
+      bgAccent: "bg-blue-500",
+      trend: "down"
+    },
+    {
+      id: 3,
+      label: "Operational Speed",
+      subLabel: "Reduction in Avg. Length of Stay",
+      value: "0.5–1.5",
+      unit: "Days",
+      icon: Clock,
+      color: isLight ? "text-[#1F2022]" : "text-[#F5AD3D]",
+      bgAccent: isLight ? "bg-[#1F2022]" : "bg-[#F5AD3D]",
+      trend: "down"
+    },
+    {
+      id: 4,
+      label: "Profitability",
+      subLabel: "Improvement in EBITDA Margins",
+      value: "3–8%",
+      icon: PieChart,
+      color: "text-purple-500",
+      bgAccent: "bg-purple-500",
+      trend: "up"
+    }
+  ];
+
+  const cardBgStats = isLight
+    ? 'bg-white border-gray-100 shadow-sm hover:shadow-xl'
+    : 'bg-white/5 border-white/10 hover:bg-white/10';
+
   return (
     <section
       ref={sectionRef}
       className={`relative w-full py-20 px-6 ${sectionBg} ${textColor} border-t border-white/5 transition-colors duration-700 overflow-hidden`}
     >
-      {/* Centered Grid Lines (Subtle) */}
-      <div className="absolute inset-0 pointer-events-none opacity-10">
-        <div className="h-full w-px bg-[#1F2022] absolute left-1/2 -translate-x-1/2"></div>
-      </div>
 
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center text-center">
 
@@ -107,6 +156,54 @@ const TheSolution = ({ theme }) => {
               <p className="text-xs font-medium opacity-60 uppercase tracking-wide">{item.sub}</p>
             </div>
           ))}
+        </div>
+
+        {/* --- STATS GRID --- */}
+        <div className={`w-full mb-12 text-left transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-6 border ${isLight ? 'border-gray-200 bg-white' : 'border-white/20 bg-white/10'}`}>
+            <span className="relative flex h-2 w-2">
+              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isLight ? 'bg-emerald-500' : 'bg-emerald-400'}`}></span>
+              <span className={`relative inline-flex rounded-full h-2 w-2 ${isLight ? 'bg-emerald-500' : 'bg-emerald-400'}`}></span>
+            </span>
+            <span className="text-xs font-bold uppercase tracking-widest">Real World Data</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.id}
+                className={`group relative p-5 md:p-6 rounded-3xl border transition-all duration-500 flex flex-col
+                  ${cardBgStats}
+                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
+                `}
+                style={{ transitionDelay: `${index * 100 + 400}ms` }}
+              >
+                {/* Header: icon + label — fixed height */}
+                <div className="flex items-center gap-3 mb-5 min-h-[40px]">
+                  <div className={`shrink-0 p-2 rounded-lg inline-flex items-center justify-center ${isLight ? 'bg-gray-100' : 'bg-white/10'}`}>
+                    <stat.icon size={18} className={stat.color} />
+                  </div>
+                  <h3 className={`font-bold text-xs uppercase tracking-wider opacity-60 leading-tight ${isLight ? 'text-gray-500' : 'text-gray-400'}`}>
+                    {stat.label}
+                  </h3>
+                </div>
+                {/* Value — fixed layout, no wrapping */}
+                <div className="mb-3 flex items-baseline gap-1 flex-wrap">
+                  <span className={`text-4xl font-black tracking-tight leading-none ${isLight ? 'text-[#1F2022]' : 'text-white'}`}>
+                    {stat.value}
+                  </span>
+                  {stat.unit && <span className="text-base font-bold opacity-60 ml-1">{stat.unit}</span>}
+                </div>
+                {/* Sub label — grows to fill space */}
+                <p className={`text-sm font-medium leading-snug mb-5 flex-grow ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>
+                  {stat.subLabel}
+                </p>
+                {/* Progress bar — always at bottom */}
+                <div className="w-full h-1.5 bg-gray-200/50 rounded-full overflow-hidden mt-auto">
+                  <div className={`h-full w-0 group-hover:w-full transition-all duration-1000 ease-out rounded-full ${stat.bgAccent}`} style={{ transitionDelay: `${index * 100 + 300}ms` }}></div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* --- BOTTOM RESULT PILL --- */}
