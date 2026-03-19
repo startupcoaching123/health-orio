@@ -104,11 +104,11 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
             </Link>
 
             {/* CTA Button - Healthorio Insights */}
-            <button onClick={handleClientRedirect} className={`hidden md:flex items-center gap-2 ${theme === 'light' ? 'bg-[#1F2022] text-white hover:bg-black' : 'bg-[#F5AD3D] text-[#1F2022] hover:bg-white'} pl-5 pr-4 py-2.5 rounded-xl text-sm font-semibold
+            {/* <button onClick={handleClientRedirect} className={`hidden md:flex items-center gap-2 ${theme === 'light' ? 'bg-[#1F2022] text-white hover:bg-black' : 'bg-[#F5AD3D] text-[#1F2022] hover:bg-white'} pl-5 pr-4 py-2.5 rounded-xl text-sm font-semibold
               hover:shadow-lg transition-all duration-300 group`}>
               Healthorio Insights
               <ArrowUpRight className={`w-4 h-4 ${theme === 'light' ? 'text-white/50' : 'text-[#1F2022]/50'} group-hover:text-current group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all`} />
-            </button>
+            </button> */}
 
             {/* Mobile Menu Icon */}
             <button
