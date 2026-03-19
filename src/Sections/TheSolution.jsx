@@ -194,13 +194,9 @@ const TheSolution = ({ theme }) => {
                   {stat.unit && <span className="text-base font-bold opacity-60 ml-1">{stat.unit}</span>}
                 </div>
                 {/* Sub label — grows to fill space */}
-                <p className={`text-sm font-medium leading-snug mb-5 flex-grow ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>
+                <p className={`text-sm font-medium leading-snug flex-grow ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>
                   {stat.subLabel}
                 </p>
-                {/* Progress bar — always at bottom */}
-                <div className="w-full h-1.5 bg-gray-200/50 rounded-full overflow-hidden mt-auto">
-                  <div className={`h-full w-0 group-hover:w-full transition-all duration-1000 ease-out rounded-full ${stat.bgAccent}`} style={{ transitionDelay: `${index * 100 + 300}ms` }}></div>
-                </div>
               </div>
             ))}
           </div>

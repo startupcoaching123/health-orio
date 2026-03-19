@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ArrowRight,
   TrendingUp,
   Activity,
   ShieldCheck,
   Users,
-  DollarSign
+  DollarSign,
+  Play,
+  PlayCircle,
+  X
 } from 'lucide-react';
+import demoVideo from '../assets/video.mp4';
 
 const WhyVBHC = ({ theme }) => {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
   // ---------------------------
   // THEME INVERSION LOGIC
   // ---------------------------
@@ -163,21 +169,33 @@ const WhyVBHC = ({ theme }) => {
             className={`lg:col-span-12 rounded-3xl p-8 shadow-sm
             ${isLight ? 'bg-white/60' : 'bg-white/5'}
             border ${borderColor}
-            flex flex-col md:flex-row gap-8 items-center`}
+            flex flex-col md:flex-row gap-8 items-center justify-between`}
           >
-            <div className="md:w-1/3">
-              <div className="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-bold uppercase mb-4">
-                The Architecture
+            {/* Text Section */}
+            <div className="md:w-1/3 flex flex-col justify-center">
+              <div>
+                <div className="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-bold uppercase mb-4">
+                  The Architecture
+                </div>
+                <h3 className="text-3xl font-bold mb-4">
+                  Integrated Practice Units
+                </h3>
+                <p className={`font-medium mb-6 ${isLight ? 'text-gray-600' : 'text-gray-400'}`}>
+                  Multidisciplinary teams organized around conditions, not
+                  departments.
+                </p>
+                <button 
+                  onClick={() => setIsVideoModalOpen(true)}
+                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5
+                    ${isLight ? 'bg-[#1F2022] text-[#E6EBE0] hover:bg-black' : 'bg-[#F5AD3D] text-[#1F2022] hover:bg-[#ffb649]'}`}
+                >
+                  <PlayCircle size={18} />
+                  View Demo
+                </button>
               </div>
-              <h3 className="text-3xl font-bold mb-4">
-                Integrated Practice Units
-              </h3>
-              <p className="text-gray-600 font-medium">
-                Multidisciplinary teams organized around conditions, not
-                departments.
-              </p>
             </div>
 
+            {/* Grid Section */}
             <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
               {[
                 { icon: Activity, label: 'Clinical Outcomes' },
@@ -186,7 +204,7 @@ const WhyVBHC = ({ theme }) => {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`flex flex-col items-center justify-center p-6
+                  className={`flex flex-col items-center justify-center p-6 h-full
                   ${isLight ? 'bg-gray-100 border-gray-200' : 'bg-white/5 border-white/10'} rounded-2xl border
                   text-center hover:${isLight ? 'bg-gray-200' : 'bg-white/10'} transition-colors`}
                 >
@@ -200,6 +218,36 @@ const WhyVBHC = ({ theme }) => {
           </div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      {isVideoModalOpen && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
+          onClick={() => setIsVideoModalOpen(false)}
+        >
+          {/* Close button top right of screen */}
+          <button 
+            onClick={() => setIsVideoModalOpen(false)}
+            className="absolute top-6 right-6 md:top-8 md:right-8 z-[110] p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all transform hover:scale-105 border border-white/20"
+            aria-label="Close modal"
+          >
+            <X size={28} />
+          </button>
+          
+          <div 
+            className="relative w-auto h-[80vh] md:h-[90vh] aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <video 
+              src={demoVideo}
+              className="w-full h-full object-contain"
+              controls 
+              autoPlay 
+              playsInline 
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
