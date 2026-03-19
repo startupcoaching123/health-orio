@@ -42,7 +42,7 @@ const ContactAssessment = ({ theme }) => {
    const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
 
    return (
-      <section ref={ref} className={`relative w-full min-h-screen pt-6 pb-12 px-6 lg:px-12 ${bgClass} ${textClass} transition-colors duration-700 font-sans flex items-center overflow-x-hidden`}>
+      <section ref={ref} className={`relative w-full min-h-[calc(100vh-72px)] pt-16 lg:pt-24 pb-12 px-6 lg:px-12 ${bgClass} ${textClass} transition-colors duration-700 font-sans flex items-center overflow-x-hidden`}>
 
          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -88,7 +88,7 @@ const ContactAssessment = ({ theme }) => {
             {/* RIGHT: THE BOOKING FORM */}
             <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
 
-               <div className={`relative p-8 md:p-10 rounded-[2.5rem] shadow-2xl overflow-hidden border ${isLight ? 'bg-white border-gray-100' : 'bg-[#151618] border-white/10'}`}>
+               <div className={`relative p-6 sm:p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl overflow-hidden border ${isLight ? 'bg-white border-gray-100' : 'bg-[#151618] border-white/10'}`}>
 
                   {/* Form Header */}
                   <div className="mb-8">
@@ -100,22 +100,22 @@ const ContactAssessment = ({ theme }) => {
                   <form className="space-y-6">
 
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
+                        <div className="flex flex-col gap-3">
                            <label className="text-xs font-bold uppercase tracking-widest opacity-50">Name</label>
                            <input type="text" placeholder="Dr. / Mr. / Ms." className={`w-full px-4 py-3 rounded-xl outline-none transition-all ${inputBg}`} />
                         </div>
-                        <div className="space-y-2">
+                        <div className="flex flex-col gap-3">
                            <label className="text-xs font-bold uppercase tracking-widest opacity-50">Work Email</label>
                            <input type="email" placeholder="name@hospital.com" className={`w-full px-4 py-3 rounded-xl outline-none transition-all ${inputBg}`} />
                         </div>
                      </div>
 
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
+                        <div className="flex flex-col gap-3">
                            <label className="text-xs font-bold uppercase tracking-widest opacity-50">Hospital Name</label>
                            <input type="text" placeholder="Organization Name" className={`w-full px-4 py-3 rounded-xl outline-none transition-all ${inputBg}`} />
                         </div>
-                        <div className="space-y-2">
+                        <div className="flex flex-col gap-3">
                            <label className="text-xs font-bold uppercase tracking-widest opacity-50">Bed Capacity</label>
                            <select className={`w-full px-4 py-3 rounded-xl outline-none transition-all appearance-none ${inputBg}`}>
                               <option>Select Size</option>
@@ -126,7 +126,7 @@ const ContactAssessment = ({ theme }) => {
                         </div>
                      </div>
 
-                     <div className="space-y-2">
+                     <div className="flex flex-col gap-3">
                         <label className="text-xs font-bold uppercase tracking-widest opacity-50">Priority Challenge</label>
                         <textarea rows="3" placeholder="Briefly describe your current operational or clinical challenges..." className={`w-full px-4 py-3 rounded-xl outline-none transition-all resize-none ${inputBg}`}></textarea>
                      </div>

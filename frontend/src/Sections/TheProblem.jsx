@@ -5,8 +5,7 @@ import {
   TrendingUp,
   LayoutList,
   UserX,
-  AlertOctagon,
-  ArrowRight
+  AlertOctagon
 } from 'lucide-react';
 
 const TheProblem = ({ theme }) => {
@@ -92,13 +91,13 @@ const TheProblem = ({ theme }) => {
             </h4>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] tracking-tight mb-8">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.2] tracking-tight mb-8">
             The Problem with <br />
             <span className={isLight ? 'opacity-50' : 'text-[#F5AD3D]'}>Today’s Hospital Model</span>
           </h2>
 
 
-          <p className="text-xl font-medium leading-relaxed opacity-90 mb-8 max-w-md">
+          <p className="text-xl font-medium leading-loose opacity-90 mb-8 max-w-md">
             Most hospitals struggle with disconnected systems. This results in <span className="underline decoration-2 underline-offset-4">higher costs</span>, <span className="underline decoration-2 underline-offset-4">inconsistent outcomes</span>, and underutilized capacity.
           </p>
 
@@ -133,11 +132,6 @@ const TheProblem = ({ theme }) => {
                     <p className={`text-sm md:text-base font-medium leading-snug ${mutedTextColor}`}>
                       {item.desc}
                     </p>
-                  </div>
-
-                  {/* Arrow Indicator (Visible on hover) */}
-                  <div className="hidden md:flex opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                    <ArrowRight size={20} />
                   </div>
                 </div>
               </div>

@@ -59,10 +59,10 @@ const Footer = () => {
         {/* --- MIDDLE SECTION: DUAL CONTACT (NO ADDRESS) --- */}
         <div className="max-w-3xl mx-auto mb-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12">
-            
+
             {/* Email Box */}
-            <a 
-              href="mailto:hello@healthorio.com" 
+            <a
+              href="mailto:Connect@healthorio.ai"
               className="flex items-center gap-5 p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] transition-all group"
             >
               <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center ${accentColor} group-hover:bg-[#F5AD3D] group-hover:text-[#0A0A0A] transition-all`}>
@@ -70,13 +70,13 @@ const Footer = () => {
               </div>
               <div>
                 <h5 className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 mb-1">Email Us</h5>
-                <p className="text-sm md:text-base font-medium">hello@healthorio.com</p>
+                <p className="text-sm md:text-base font-medium">Connect@healthorio.ai</p>
               </div>
             </a>
 
             {/* Phone Box */}
-            <a 
-              href="tel:+919876543210" 
+            <a
+              href="tel:+917204987156"
               className="flex items-center gap-5 p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] transition-all group"
             >
               <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center ${accentColor} group-hover:bg-[#F5AD3D] group-hover:text-[#0A0A0A] transition-all`}>
@@ -84,7 +84,7 @@ const Footer = () => {
               </div>
               <div>
                 <h5 className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 mb-1">Call Us</h5>
-                <p className="text-sm md:text-base font-medium">+91 98765 43210</p>
+                <p className="text-sm md:text-base font-medium">+91 72049 87156</p>
               </div>
             </a>
 
@@ -97,28 +97,21 @@ const Footer = () => {
             &copy; 2026 HEALTH ORIO PVT LTD.
           </div>
           <div className="flex gap-4">
-            <a 
-              href="#" 
+            <a
+              href="https://www.instagram.com/healthorio/"
               className={`w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center ${accentColor} hover:bg-[#F5AD3D] hover:text-[#0A0A0A] transition-all`}
               aria-label="Instagram"
             >
               <Instagram size={18} />
             </a>
-            <a 
-              href="#" 
-              className={`w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center ${accentColor} hover:bg-[#F5AD3D] hover:text-[#0A0A0A] transition-all`}
-              aria-label="Facebook"
-            >
-              <Facebook size={18} />
-            </a>
-            <a 
-              href="#" 
+            <a
+              href="https://www.linkedin.com/company/healthorio/"
               className={`w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center ${accentColor} hover:bg-[#F5AD3D] hover:text-[#0A0A0A] transition-all`}
               aria-label="LinkedIn"
             >
               <Linkedin size={18} />
             </a>
-            
+
           </div>
         </div>
       </div>
