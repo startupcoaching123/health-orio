@@ -166,9 +166,9 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
               <MessageCircle className="w-5 h-5" />
               Talk to Us
             </Link>
-            <button onClick={handleClientRedirect} className={`w-full ${theme === 'light' ? 'bg-[#1F2022] text-white' : 'bg-[#F5AD3D] text-[#1F2022]'} py-4 rounded-xl font-bold text-lg active:scale-95 transition-transform`}>
+            {/*<button onClick={handleClientRedirect} className={`w-full ${theme === 'light' ? 'bg-[#1F2022] text-white' : 'bg-[#F5AD3D] text-[#1F2022]'} py-4 rounded-xl font-bold text-lg active:scale-95 transition-transform`}>
               Healthorio Insights
-            </button>
+            </button> */}
           </div>
         </div>
       </nav>
