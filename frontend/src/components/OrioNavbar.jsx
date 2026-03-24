@@ -3,6 +3,10 @@ import { Sun, Moon, Menu, X, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import OrioLogo from './OrioLogo';
 
+const handleClientRedirect = () => {
+  window.open("https://dev-ui.healthorio.ai/", "_blank", "noopener,noreferrer");
+};
+
 const OrioNavbar = ({ theme, toggleTheme }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -89,15 +93,22 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
               </div>
             </button>
 
-            {/* CTA Button */}
+            {/* CTA Button - Talk to Us */}
             <Link
               to="/contact"
-              className={`hidden md:flex items-center gap-2 ${theme === 'light' ? 'bg-[#1F2022] text-white hover:bg-black' : 'bg-[#F5AD3D] text-[#1F2022] hover:bg-white'} pl-5 pr-4 py-2.5 rounded-xl text-sm font-semibold 
+              className={`hidden md:flex items-center gap-2 ${theme === 'light' ? 'bg-[#1F2022] text-white hover:bg-black' : 'bg-[#F5AD3D] text-[#1F2022] hover:bg-white'} pl-5 pr-4 py-2.5 rounded-xl text-sm font-semibold
               hover:shadow-lg transition-all duration-300 group`}>
               <MessageCircle className="w-4 h-4" />
               Talk to Us
               <ArrowUpRight className={`w-4 h-4 ${theme === 'light' ? 'text-white/50' : 'text-[#1F2022]/50'} group-hover:text-current group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all`} />
             </Link>
+
+            {/* CTA Button - Healthorio Insights */}
+            {/* <button onClick={handleClientRedirect} className={`hidden md:flex items-center gap-2 ${theme === 'light' ? 'bg-[#1F2022] text-white hover:bg-black' : 'bg-[#F5AD3D] text-[#1F2022] hover:bg-white'} pl-5 pr-4 py-2.5 rounded-xl text-sm font-semibold
+              hover:shadow-lg transition-all duration-300 group`}>
+              Healthorio Insights
+              <ArrowUpRight className={`w-4 h-4 ${theme === 'light' ? 'text-white/50' : 'text-[#1F2022]/50'} group-hover:text-current group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all`} />
+            </button> */}
 
             {/* Mobile Menu Icon */}
             <button
@@ -155,6 +166,9 @@ const OrioNavbar = ({ theme, toggleTheme }) => {
               <MessageCircle className="w-5 h-5" />
               Talk to Us
             </Link>
+            {/*<button onClick={handleClientRedirect} className={`w-full ${theme === 'light' ? 'bg-[#1F2022] text-white' : 'bg-[#F5AD3D] text-[#1F2022]'} py-4 rounded-xl font-bold text-lg active:scale-95 transition-transform`}>
+              Healthorio Insights
+            </button> */}
           </div>
         </div>
       </nav>
